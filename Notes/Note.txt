@@ -587,3 +587,130 @@ Photonic qubits can travel through:
 
 ## 8. Key Idea
 Photonic quantum computers encode qubits using **properties of light**, such as polarization or spatial position.
+
+# QPU (Quantum Processing Unit)
+
+## 1. Key Idea
+Quantum computers will **not replace classical computers**.
+
+Instead, they will **work together with classical processors**.
+
+---
+
+## 2. CPU (Central Processing Unit)
+The CPU is the **main controller of a computer**.
+
+It:
+- runs programs
+- manages input and output
+- coordinates other processors
+
+But it is **not optimized for specialized heavy calculations**.
+
+---
+
+## 3. GPU (Graphics Processing Unit)
+A GPU is a **specialized processor**.
+
+It is designed for:
+- graphics rendering
+- parallel calculations
+- machine learning
+
+The CPU sends certain tasks to the GPU.
+
+---
+
+## 4. QPU (Quantum Processing Unit)
+A QPU is a **specialized processor that performs quantum computations**.
+
+It is good for problems like:
+- optimization problems
+- simulating quantum physics
+- cryptography
+- certain search problems
+
+---
+
+## 5. How Future Computers Will Work
+Future computers will likely combine:
+
+CPU → general control  
+GPU → graphics & parallel tasks  
+QPU → quantum calculations  
+
+The CPU will coordinate everything.
+
+---
+
+## 6. Early Quantum Computers
+Most early quantum computers will be accessed through:
+
+- **cloud services**
+- remote quantum hardware
+
+---
+
+## 7. Key Idea
+Quantum computers will act as **special-purpose accelerators**, similar to GPUs.
+
+# Superposition in Waves
+
+## 1. Superposition Principle
+When two waves overlap, the resulting wave is the **sum of the two waves**.
+
+The waves do not affect each other directly; they only combine through the medium.
+
+Result wave = Wave 1 + Wave 2
+
+---
+
+## 2. Constructive Interference
+If two identical waves align perfectly:
+
+- Peaks align with peaks
+- Troughs align with troughs
+
+Result:
+- The amplitude becomes **larger**
+
+Example:
+Amplitude doubles.
+
+This is called **constructive interference**.
+
+---
+
+## 3. Destructive Interference
+If one wave is shifted (phase shifted) so that:
+
+- Peaks align with troughs
+
+Result:
+- The waves **cancel each other**
+
+Amplitude becomes **zero**.
+
+This is called **destructive interference**.
+
+---
+
+## 4. Wave Properties That Control the Result
+
+Three properties determine the final wave pattern:
+
+Amplitude → height of the wave  
+Phase → horizontal shift of the wave  
+Wavelength → distance between peaks  
+
+By adjusting these, we can create many different patterns.
+
+---
+
+## 5. Why This Matters in Quantum Computing
+Quantum algorithms rely on **interference**.
+
+They manipulate wave-like quantum states so that:
+
+Correct answers → constructive interference  
+Wrong answers → destructive interference

@@ -1299,3 +1299,633 @@ Example:
 - Instead of just superposition, use **interference patterns**  
 - Opposite signs (+ / −) in superposition allow **constructive or destructive interference**  
 - Interference can amplify the right answer **without collapsing all states prematurely**
+
+# Cycle of Information (Classical vs Quantum)
+
+## 1. Key Idea
+- Information (data) goes through a **lifecycle**:
+  1. Creation
+  2. Storage
+  3. Communication (transfer)
+  4. Computation (processing)
+  5. Deletion
+
+---
+
+## 2. Classical Example
+- Take photo → (creation)
+- Save on phone → (storage)
+- Upload to cloud → (communication)
+- Enhance/compress → (computation)
+- Delete original → (deletion)
+
+---
+
+## 3. Quantum Perspective
+
+Quantum data (qubits) will follow a **similar lifecycle**, but:
+
+- Harder to store (fragile states)
+- Harder to read (measurement collapse)
+- Harder to transmit (noise, decoherence)
+
+---
+
+## 4. Where is Quantum Advantage?
+
+Main advantages expected in:
+
+### (a) Quantum Computation
+- Solving problems faster than classical computers  
+- Examples:
+  - Factoring (Shor’s algorithm)
+  - Search (Grover’s algorithm)
+
+### (b) Quantum Communication
+- Secure data transfer  
+- Example:
+  - Quantum key distribution (QKD)
+
+---
+
+## 5. Key Insight
+
+- Not every stage benefits equally  
+- Biggest breakthroughs:
+  - **Processing (computation)**
+  - **Transmitting securely (communication)**
+
+Other stages (storage, creation) are still challenging
+
+# Types of Data (Quantum Computing)
+
+## 1. Three Types of Data
+All quantitative data uses numbers:
+
+- Analog → real numbers (continuous)
+- Digital → integers (discrete)
+- Quantum → complex numbers (amplitude + phase)
+
+---
+
+## 2. Analog Data
+- Continuous values
+- Example: sound, light, vision
+- Advantage: very detailed
+- Disadvantage: sensitive to noise and errors
+
+---
+
+## 3. Digital Data
+- Discrete values (0, 1)
+- Binary is a special case
+- Advantage: easy to store and copy
+- Advantage: resistant to noise
+- Disadvantage: loses detail (approximation)
+
+---
+
+## 4. Quantum Data
+- Uses complex numbers
+- General state:
+  ψ = α|0⟩ + β|1⟩
+
+- Advantage: very rich information (amplitude + phase)
+- Advantage: can represent both analog and digital
+- Disadvantage: cannot be copied (no-cloning)
+- Disadvantage: measurement collapses the state
+
+---
+
+## 5. Comparison
+
+| Type     | Numbers Used | Nature      | Copyable | Noise Resistance |
+|----------|-------------|------------|----------|-----------------|
+| Analog   | Real        | Continuous | No       | Low             |
+| Digital  | Integers    | Discrete   | Yes      | High            |
+| Quantum  | Complex     | Mixed      | No       | Medium*         |
+
+*With error correction
+
+---
+
+## 6. Compatibility
+
+Quantum data can represent:
+- Digital data: |0⟩, |1⟩
+- Analog-like data: continuous amplitudes
+
+Conclusion:
+Quantum data is the most general form of data.
+
+---
+
+## 7. Key Idea
+
+Quantum data combines:
+- analog richness
+- digital robustness (with correction)
+
+but introduces physical constraints (collapse, no cloning)
+
+# Encoding Data (Quantum Computing)
+
+## 1. Core Idea
+Information is physical.
+
+- Data must be stored in a **physical system**
+- Encoding = mapping physical states → information
+
+---
+
+## 2. What is Encoding?
+
+Encoding is:
+- The process of converting physical configurations into data
+- Happens during:
+  - data creation
+  - data transfer
+  - storage
+
+---
+
+## 3. Classical Example
+
+Light switch:
+- OFF → 0
+- ON → 1
+
+Why it works:
+- Two clearly distinct states
+- Stable and easy to measure
+
+---
+
+## 4. Quantum Encoding (Qubits)
+
+Qubits require:
+- Precise control of physical systems
+- Ability to maintain superposition
+
+Examples of physical implementations:
+- Trapped ions / neutral atoms
+- Superconducting circuits
+- Crystal defects (e.g., NV centers)
+- Photonic systems
+
+---
+
+## 5. Key Difference
+
+Classical encoding:
+- Discrete states (0 or 1)
+- Easy to read and copy
+
+Quantum encoding:
+- Superposition (α|0⟩ + β|1⟩)
+- Fragile
+- Cannot be copied
+- Measurement changes the state
+
+---
+
+## 6. Apply Question
+
+Can a light switch encode quantum data?
+
+Answer:
+- No
+
+Reason:
+- A light switch only has **two classical states**
+- It cannot support:
+  - superposition
+  - phase
+  - quantum coherence
+
+  
+# Logic Prevails (Quantum Computing Basics)
+
+## 1. Core Idea
+After data is created, stored, and transferred → we compute on it.
+
+- Input: bits
+- Process: algorithm
+- Output: new or modified information
+
+---
+
+## 2. Fundamental Insight
+
+Any computation can be built from:
+- simple logic functions
+
+Because:
+- bits only have two values → 0 or 1
+- we can list all possibilities using truth tables
+
+---
+
+## 3. Common Logic Functions
+
+### NOT
+- Flips a bit
+
+| Input | Output |
+|-------|--------|
+| 0     | 1      |
+| 1     | 0      |
+
+---
+
+### AND
+- Output is 1 only if both inputs are 1
+
+| A | B | Output |
+|---|---|--------|
+| 0 | 0 | 0      |
+| 0 | 1 | 0      |
+| 1 | 0 | 0      |
+| 1 | 1 | 1      |
+
+---
+
+## 4. Apply: XOR Function
+
+Definition:
+- Output = 1 if inputs are different
+- Output = 0 if inputs are the same
+
+### XOR Truth Table
+
+| A | B | XOR |
+|---|---|-----|
+| 0 | 0 | 0   |
+| 0 | 1 | 1   |
+| 1 | 0 | 1   |
+| 1 | 1 | 0   |
+
+---
+
+## 5. Key Idea for Quantum Computing
+
+- Classical computation → built from logic gates
+- Quantum computation → will be built from quantum gates
+
+But:
+- We must first understand simple logic before quantum versions
+
+# Gates and Logical Flow
+
+## 1. Core Idea
+
+- Logic functions can be visualized using **logic circuits**
+- Circuits act like flowcharts for computation
+- Time flows from **left → right**
+
+---
+
+## 2. Logic Gates
+
+- Each logic function has a **symbol (gate)**
+- Gates take inputs → produce outputs
+
+Examples:
+- NOT
+- AND
+- OR
+- NAND
+- XOR
+
+---
+
+## 3. Circuits
+
+- Multiple gates are connected together
+- Output of one gate → input of another
+- Complex algorithms are built from simple gates
+
+---
+
+## 4. NAND Gate (Very Important)
+
+- NAND = NOT(AND)
+- Truth:
+
+| A | B | NAND |
+|---|---|------|
+| 0 | 0 | 1    |
+| 0 | 1 | 1    |
+| 1 | 0 | 1    |
+| 1 | 1 | 0    |
+
+Key property:
+- **Universal gate**
+- Any computation can be built using only NAND gates
+
+---
+
+## 5. Circuits in Quantum Computing
+
+- Same idea as classical circuits
+- Different symbols (quantum gates)
+- Still process information step-by-step
+
+---
+
+Most direct:
+- **NAND gate gives 0 for all 1s**
+
+? Why NAND is a universal gate
+
+- A gate is universal if you can build any other logic gate using only that gate.
+
+So to prove NAND is universal, we show:
+- You can make NOT using **NAND**
+- You can make AND using **NAND**
+- You can make OR using **NAND**
+Once you have these, you can build any circuit.
+
+# Almost Qubits
+
+## 1. From Bits → Probabilistic Bits
+
+### Classical bit:
+- Values: 0 or 1
+
+### Probabilistic bit:
+- Has probabilities:
+  - p → probability of 0 (or heads)
+  - q → probability of 1 (or tails)
+
+Rules:
+- 0 ≤ p, q ≤ 1
+- p + q = 1
+
+---
+
+## 2. Qubits
+
+A qubit is similar, but more powerful:
+
+- Uses complex numbers:
+  α and β
+
+State:
+  ψ = α|0⟩ + β|1⟩
+
+---
+
+## 3. Constraint (Normalization)
+
+For a valid qubit:
+
+α² + β² = 1
+
+- Ensures total probability = 1
+- Gives a geometric interpretation
+
+---
+
+## 4. Geometric Insight
+
+This equation represents a **circle**:
+
+# More is Different
+
+## 1. Classical Bits
+
+- Data is encoded as strings of 0's and 1's
+- State of a system = all information needed to describe it
+- Bits can be stored, simulated, and manipulated efficiently on classical computers
+
+---
+
+## 2. Quantum Systems
+
+- Quantum systems require **too much information** to store as classical bits
+- States are **naturally described by quantum data**
+- Quantum data is not just “more,” it is **different** in kind
+
+---
+
+## 3. Qubits
+
+- Smallest unit of quantum data
+- Unlike classical bit (0 or 1), a qubit is a **point on the surface of a sphere**
+- Represents a **richer set of possibilities**
+- Can store a bit, but can also exist in **superpositions** of 0 and 1
+
+---
+
+## 4. Key Insight
+
+- Quantum ≠ classical
+- Quantum is **different**, not just bigger or more powerful 
+
+# Touch, but Don’t Look
+
+## 1. Reading and Writing Qubits
+
+- Qubits are fundamentally different from classical bits
+- Classical data can be encoded in qubits, but **quantum states go beyond classical**
+- Writing quantum data: set qubits to desired states
+- Reading quantum data = **measurement**, which **destroys the state**
+
+---
+
+## 2. Single-Use Nature
+
+- Qubits are **single-use**
+- Extracting information collapses superpositions
+- Quantum computations happen **inside** the quantum system; you cannot watch intermediate steps without altering the outcome
+
+---
+
+## 3. Non-Classical States
+
+- States **not equivalent to 0 or 1** are non-classical
+- Examples: superposition states like:
+  - |0⟩ + |1⟩
+  - |0⟩ - |1⟩
+  - Any point on the Bloch sphere **except poles**
+
+
+# Oh so fragile
+
+## 1. Environmental Effects
+
+- Qubits are extremely sensitive to their environment
+- Noise = unintentional interactions with surroundings
+- Noise can **change or “read” qubit states**, corrupting information
+
+---
+
+## 2. Qubit Sphere and Data Locations
+
+- Poles (north/south) → classical bits |0⟩ and |1⟩
+- Central z-axis → probabilistic/classical uncertainty (like a fair coin)
+- Other locations → genuine quantum states (superpositions)
+- Noise can randomize these states or collapse them to classical bits
+
+---
+
+## 3. Fragility of Quantum Information
+
+- Quantum states are delicate
+- Errors accumulate rapidly without protection
+- Controlling noise is **the biggest challenge** in building quantum computers
+
+# No-gos, the quantum no-nos
+
+## 1. What are No-gos?
+
+- Certain operations possible with classical bits **cannot** be done with qubits
+- These limitations are called **no-gos**
+
+---
+
+## 2. Example: No-cloning
+
+- Qubits **cannot be copied** or cloned
+- Impossible to make a “quantum photocopier”
+- Each qubit is **unique**
+- Receiving a qubit guarantees no duplicates exist elsewhere
+
+---
+
+## 3. Implications
+
+- No-cloning and other restrictions make qubit applications **different** from classical digital technology
+- These restrictions also make designing quantum algorithms and systems **more challenging**
+
+# Superposition, super power
+
+## 1. What is Superposition?
+
+- Qubit states that are **not** ∣0⟩ or ∣1⟩ are called **superposition states**
+- Superposition allows a **richer set of possibilities** than classical bits
+- Mathematically, every superposition state is a combination of ∣0⟩ and ∣1⟩:
+
+\[
+|ψ⟩ = α|0⟩ + β|1⟩
+\]
+
+- α and β are numbers constrained so the qubit stays on the Bloch sphere
+
+---
+
+## 2. Meaning of α and β
+
+- They indicate **how much of each basis state** (∣0⟩ and ∣1⟩) is present in the superposition
+- Infinite possibilities exist due to freedom in choosing α and β
+
+---
+
+## 3. Famous Superposition States
+
+1. **Plus-state (∣+⟩)**
+
+\[
+|+⟩ = |0⟩ + |1⟩
+\]
+
+- Equally weighted sum of ∣0⟩ and ∣1⟩
+- Most common superposition state
+
+2. **Minus-state (∣−⟩)**
+
+\[
+|−⟩ = |0⟩ - |1⟩
+\]
+
+- Opposite of the plus-state
+- ∣+⟩ and ∣−⟩ are **orthogonal** to each other
+
+---
+
+## 4. Key Insight
+
+- Superposition is the **first “superpower”** of qubits over classical bits
+- It allows qubits to encode **more information simultaneously** than a single classical bit 
+
+# Tangled in entanglement
+
+## 1. Superposition vs. Entanglement
+
+- **Superposition alone**: Qubit in ∣0⟩ + ∣1⟩
+  - Measuring gives a random outcome
+  - Not enough for quantum advantage
+
+- **Entanglement**: Superpositions of **correlation**
+  - Qubits are no longer independent
+  - Only the correlations between qubits fully describe the system
+  - Entire system must be treated as a single complex state
+
+---
+
+## 2. Classical Analogy
+
+- Shoes example:
+  - Left shoe is on left foot → right shoe on right foot
+  - Classical correlation due to a **common cause** (you putting shoes on)
+- Quantum entanglement:
+  - Correlations exist **without an evident classical cause**
+  - Measurement outcomes of entangled qubits are linked even if separated
+
+---
+
+## 3. Importance for Quantum Computation
+
+- Entanglement is **necessary** for quantum algorithms to outperform classical computation
+- Enables **exponentially large state spaces** in superposition
+
+---
+
+## 4. Quantitative Expression
+
+- n entangled qubits → require **2ⁿ classical states** to describe the system in superposition
+- Example: 3 qubits → 2³ = 8 classical states
+
+# Whence the Qubit
+
+## 1. Origins of Computing
+
+- Early 20th century: Computer science emerges
+  - Focus: What problems can be solved by flipping bits according to algorithms
+- Mid-20th century: **Transistor invention** → computers become ubiquitous
+
+---
+
+## 2. Physics Meets Computation
+
+- Digital computers obey **classical physics**
+- Scientists asked: what are the **fundamental limits of computation** imposed by physics?
+- Enter **quantum mechanics**:
+  - Quantum laws allow fundamentally different computation
+  - Feynman (1980): “It was time to get quantum!”
+
+---
+
+## 3. Early Quantum Computing
+
+- Prototype quantum computers demonstrated:
+  - Quantum algorithms solving problems **exponentially faster** than classical ones
+- 2012 Nobel Prize (Haroche & Wineland):
+  - Control and measurement of **individual quantum systems**
+  - Foundation for **quantum technology**
+
+---
+
+## 4. Modern Quantum Devices
+
+- Prototype devices are evolving toward practical tasks
+- Challenges remain: **noise, errors, fragility of qubits**
+
+---
+
+## 5. Key Insight
+
+- Quantum technology is powered by:
+  - **Precise control and measurement of individual quantum systems**
+  - Exploiting **superposition, entanglement, and quantum states**

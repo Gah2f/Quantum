@@ -1929,3 +1929,501 @@ This equation represents a **circle**:
 - Quantum technology is powered by:
   - **Precise control and measurement of individual quantum systems**
   - Exploiting **superposition, entanglement, and quantum states**
+
+# The Qubit Circle (Bloch Circle)
+
+## 1. Purpose
+
+- A simplified way to visualize qubits
+- Avoids complex numbers (for intuition)
+- Slice of the full Bloch sphere (x–z plane)
+
+---
+
+## 2. Key States on the Circle
+
+- Top → ∣0⟩
+- Bottom → ∣1⟩
+- Right → ∣+⟩ = ∣0⟩ + ∣1⟩
+- Left → ∣−⟩ = ∣0⟩ − ∣1⟩
+
+---
+
+## 3. What It Shows
+
+- Superposition states as points on the circle
+- Quantum gates as **rotations**
+- Measurement outcomes
+
+---
+
+## 4. NOT Gate on Bloch Circle
+
+- NOT gate flips:
+  - ∣0⟩ → ∣1⟩
+  - ∣1⟩ → ∣0⟩
+
+- On the circle:
+  - Moves from **top → bottom**
+  - Equivalent to a rotation by **θ = π (180°)**
+
+---
+
+# Anchor Points (Bloch Circle)
+
+## 1. Computational Basis States
+
+- ∣0⟩ and ∣1⟩ are the **fundamental states** of a qubit
+- Represent classical bits:
+  - ∣0⟩ → 0
+  - ∣1⟩ → 1
+
+- On the Bloch circle:
+  - ∣0⟩ → top
+  - ∣1⟩ → bottom
+
+---
+
+## 2. Why They Are Important
+
+- Every qubit state can be written as a combination of:
+  
+  ψ = α|0⟩ + β|1⟩
+
+- These states form a **basis**
+- Also called:
+  - computational states
+  - anchor points
+
+---
+
+## 3. Superposition Principle
+
+- Any qubit state is a mixture of ∣0⟩ and ∣1⟩
+- This is what allows quantum flexibility
+
+---
+
+## 4. Bloch Circle Interpretation
+
+- States are positions on a circle
+- Moving between states = rotation
+
+- From ∣0⟩ to ∣1⟩:
+  - move from top → bottom
+  - angle = π radians (180°)
+
+---
+
+## 5. Key Insight
+
+- ∣0⟩ is often the **default starting state** in quantum algorithms
+- ∣0⟩ and ∣1⟩ are the foundation for all quantum computation
+
+# Superposition Again (Bloch Circle)
+
+## 1. Core Idea
+
+- Superposition = combining states
+- In quantum computing:
+  
+  ψ = α|0⟩ + β|1⟩
+
+- ∣0⟩ and ∣1⟩ are NOT superpositions
+- All other states are superpositions
+
+---
+
+## 2. Meaning of α and β
+
+- Represent contribution of each state
+- Must satisfy normalization (stay on circle)
+
+---
+
+## 3. Important Superposition States
+
+### Plus state
+
+|+⟩ = (1/√2)|0⟩ + (1/√2)|1⟩
+
+- Right side of Bloch circle
+
+---
+
+### Minus state
+
+|−⟩ = (1/√2)|0⟩ − (1/√2)|1⟩
+
+- Left side of Bloch circle
+
+---
+
+## 4. Bloch Circle Positions
+
+- ∣0⟩ → top
+- ∣1⟩ → bottom
+- ∣+⟩ → right
+- ∣−⟩ → left
+
+---
+
+## 6. Key Insight
+
+- Superposition states are just rotations from ∣0⟩
+- Different angles → different mixtures of ∣0⟩ and ∣1⟩
+
+# Measuring Qubits
+
+## 1. What is Measurement?
+
+- Measurement = reading quantum information
+- Result is ALWAYS a classical bit:
+  - ∣0⟩ or ∣1⟩
+
+- You NEVER observe superposition directly
+
+---
+
+## 2. Collapse of the State
+
+- Before measurement:
+  
+  |ψ⟩ = α|0⟩ + β|1⟩
+
+- After measurement:
+  - State collapses to either:
+    - ∣0⟩ OR
+    - ∣1⟩
+
+- Collapse is permanent (unless changed again)
+
+---
+
+## 3. Repeated Measurement
+
+- Measuring again gives SAME result
+- Example:
+  - Measure → ∣0⟩
+  - Measure again → still ∣0⟩
+
+---
+
+## 4. Probability Rule
+
+- Measurement outcome is random BUT:
+  - Probability depends on α and β
+
+- More weight → higher chance
+
+---
+
+## 5. Bloch Circle Insight
+
+- ∣0⟩ → top
+- ∣1⟩ → bottom
+
+---
+
+
+## 7. Key Insight
+
+- Measurement destroys superposition
+- Only pure states (∣0⟩ or ∣1⟩) give certainty
+
+# Why a Circle? (Bloch Circle)
+
+## 1. Core Idea
+
+- A qubit state:
+  
+  |ψ⟩ = α|0⟩ + β|1⟩
+
+- The coefficients α and β are NOT arbitrary
+- They must satisfy a constraint
+
+---
+
+## 2. Normalization Condition
+
+- The rule:
+
+  α² + β² = 1
+
+- This ensures:
+  - Total probability = 1
+
+---
+
+## 3. Why a Circle?
+
+- Equation α² + β² = 1 is the equation of a circle
+- Just like:
+  - x² + y² = 1 → circle in math
+
+- So:
+  - α → x-axis
+  - β → y-axis
+
+- Result:
+  - All valid qubit states lie on a circle
+
+---
+
+## 4. Physical Meaning
+
+- α² = probability of measuring ∣0⟩
+- β² = probability of measuring ∣1⟩
+
+- Since probabilities must sum to 1:
+  
+  α² + β² = 1
+
+---
+
+## 5. Example (Plus State)
+
+|+⟩ = (1/√2)|0⟩ + (1/√2)|1⟩
+
+- α = 1/√2
+- β = 1/√2
+
+Check:
+- (1/√2)² + (1/√2)² = 1
+
+---
+
+
+## 7. Key Insight
+
+- The "circle" comes from probability conservation
+- Every valid qubit state lies on this circle
+
+# Trigonometry for the Win (Bloch Circle)
+
+## 1. Key Connection
+
+We connect angle θ with qubit state:
+
+|ψ⟩ = cos(θ/2)|0⟩ + sin(θ/2)|1⟩
+
+- Automatically satisfies normalization
+- Links geometry ↔ probability
+
+---
+
+## 2. Probabilities
+
+- Probability of measuring ∣0⟩:
+  
+  P(0) = cos²(θ/2)
+
+- Probability of measuring ∣1⟩:
+  
+  P(1) = sin²(θ/2)
+
+---
+
+## 3. Geometric Meaning
+
+- θ determines position on Bloch circle
+- Closer to top → more likely ∣0⟩
+- Closer to bottom → more likely ∣1⟩
+
+---
+
+## 4. Apply Question
+
+We want:
+
+P(0) = P(1) = cos²(π/4)
+
+Step 1:
+cos(π/4) = 1/√2
+
+Step 2:
+cos²(π/4) = 1/2
+
+So:
+P(0) = P(1) = 1/2
+
+---
+
+## 5. Solve for θ
+
+We use:
+
+cos²(θ/2) = 1/2
+
+This happens when:
+
+θ/2 = π/4
+
+So:
+
+θ = π/2
+
+---
+
+## 6. Interpretation
+
+- Equal probability → state is halfway
+- This corresponds to:
+  - ∣+⟩ or ∣−⟩ (depending on direction)
+
+---
+
+## 7. Key Insight
+
+- Trigonometry makes quantum states intuitive
+- Angle θ directly controls measurement probabilities
+
+# Quantum Gates (Bloch Circle)
+Now, we are not using sliders anymore to change the angle, GATES can do it for us!
+
+## 1. What are Quantum Gates?
+
+- Gates = operations that change qubit states
+- Applied step-by-step in an algorithm
+- Move the state on the Bloch circle
+
+---
+
+## 2. Identity Gate (I)
+
+- Does nothing
+- Leaves state unchanged
+
+---
+
+## 3. NOT Gate (X Gate)
+
+- Flips states:
+  - |0⟩ → |1⟩
+  - |1⟩ → |0⟩
+
+- Works on superpositions:
+
+  α|0⟩ + β|1⟩ → α|1⟩ + β|0⟩
+
+- On Bloch circle:
+  - top ↔ bottom (180° rotation)
+
+---
+
+## 4. Hadamard Gate (H)
+
+- Creates superposition:
+
+  |0⟩ → |+⟩  
+  |1⟩ → |−⟩
+
+- Key "superposition generator"
+
+---
+
+## 5. Apply Question
+
+Start with:
+
+|+⟩ = (1/√2)(|0⟩ + |1⟩)
+
+Apply X gate:
+
+X(|+⟩) = (1/√2)(|1⟩ + |0⟩)
+
+Rearrange:
+
+= (1/√2)(|0⟩ + |1⟩)
+
+= |+⟩
+
+---
+
+## 6. Final Answer
+
+- The state remains:
+
+|+⟩
+
+---
+
+## 7. Key Insight
+
+- X swaps |0⟩ and |1⟩
+- But |+⟩ is symmetric → unchanged
+
+# Spin Right Round (Quantum Rotations)
+
+## 1. Real Gates = Rotations
+
+- Quantum gates are NOT instantaneous
+- They are implemented as rotations
+- State moves smoothly on Bloch circle
+
+---
+
+## 2. Y Gate
+
+- Y gate = rotation about y-axis
+- Rotation angle:
+
+  π radians (180°)
+
+- Effect:
+  |0⟩ → |1⟩
+
+---
+
+## 3. Comparing Gates
+
+- X gate → rotate about x-axis (π)
+- Y gate → rotate about y-axis (π)
+
+- Both:
+  - flip |0⟩ ↔ |1⟩
+  - but via different paths
+
+---
+
+## 4. Partial Rotations
+
+- We can apply fractions of gates:
+  - Half Y gate → π/2 (90°)
+  - Quarter → π/4, etc.
+
+---
+
+## 5. Apply Question
+
+Step 1:
+Start at |0⟩ (top)
+
+Step 2:
+Apply full Y gate:
+- rotate π → reach |1⟩ (bottom)
+
+Step 3:
+Apply half Y gate:
+- rotate π/2 further
+
+---
+
+## 6. Final Position
+
+- From bottom → rotate π/2
+- This lands on the side of the circle
+
+Final state:
+|−⟩ (left side)
+
+---
+
+## 7. Key Insight
+
+- Rotations accumulate
+- Total rotation:
+
+  π + π/2 = 3π/2
+
+- This determines final position

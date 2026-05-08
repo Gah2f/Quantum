@@ -3850,6 +3850,1890 @@ Circle notation is just a compressed way of drawing complex numbers that define 
 ## Long Story Short  
 Quantum states look mysterious, but they’re just complex numbers drawn as circles with size and direction.
 
+# On a Wire (Multi-Qubit Basics)
+
+## Core Idea  
+A quantum circuit represents each qubit as a separate wire. Multiple qubits evolve over time from left to right, and operations can occur simultaneously across wires.
+
 ---
 
-Random word: “hidden in plain sight”
+## Key Insights  
+
+- Each qubit has its own wire  
+- Time flows from left to right  
+- Vertically aligned gates act at the same time  
+- Default initial state for two qubits:  
+  |0⟩ ⊗ |0⟩ = |00⟩  
+
+- If no interaction between qubits:
+  - They evolve independently
+
+- Measurement:
+  - Happens at the end of the circuit  
+  - Each qubit gives one classical bit  
+
+---
+
+## Number of Outcomes  
+
+- For n qubits:
+  2^n possible measurement outcomes  
+
+- For 2 qubits:
+  2² = 4 outcomes  
+
+- Possible results:
+  |00⟩  
+  |01⟩  
+  |10⟩  
+  |11⟩  
+
+---
+
+## Core Idea (simplified)  
+More qubits means exponentially more possible outcomes.
+
+---
+
+## Long Story Short  
+Each qubit is a wire, and measuring n qubits gives 2ⁿ possible results.
+
+# Need More Circles (Two-Qubit States)
+
+## Core Idea
+When you move from 1 qubit to 2 qubits, the state space grows exponentially.  
+Instead of 2 amplitudes, you now have 4 amplitudes — one for each computational state.
+
+A general two-qubit state:
+|ψ⟩ = α|00⟩ + β|01⟩ + γ|10⟩ + δ|11⟩
+
+Each amplitude (α, β, γ, δ) is a complex number → each gets its own "dial" in circle notation.
+
+---
+
+## Key Insights
+
+### 1. Number of States Grows Fast
+- 1 qubit → 2 states → (|0⟩, |1⟩)
+- 2 qubits → 4 states → (|00⟩, |01⟩, |10⟩, |11⟩)
+- In general: n qubits → 2ⁿ states
+
+This is why quantum computing is powerful.
+
+---
+
+### 2. Ordering Matters (Binary Order)
+We always write states in this order:
+|00⟩, |01⟩, |10⟩, |11⟩
+
+Think of it like counting:
+00 → 0  
+01 → 1  
+10 → 2  
+11 → 3  
+
+This keeps everything consistent.
+
+---
+
+### 3. Each Dial Represents a FULL System State
+Important:
+- A dial does NOT belong to a single qubit
+- Each dial represents one **combined state of both qubits**
+
+So:
+- α → |00⟩
+- β → |01⟩
+- γ → |10⟩
+- δ → |11⟩
+
+---
+
+### 4. You Cannot Split the System Easily
+In general:
+- You cannot say "this part is qubit 1, this part is qubit 2"
+- The amplitudes are **shared across the whole system**
+
+This is where **entanglement** comes from (you’ll see this soon).
+
+---
+
+### 5. Circle Notation Extension
+- 1 qubit → 2 dials
+- 2 qubits → 4 dials
+- n qubits → 2ⁿ dials
+
+Each dial:
+- Size → probability (magnitude²)
+- Angle → phase
+
+---
+
+## Example
+
+State:
+|ψ⟩ = |00⟩ − |01⟩ − |10⟩ + |11⟩
+
+This means:
+- α = +1
+- β = −1
+- γ = −1
+- δ = +1
+
+So in circle notation:
+- |00⟩ → positive phase
+- |01⟩ → π phase
+- |10⟩ → π phase
+- |11⟩ → positive phase
+
+(All same magnitude if normalized)
+
+---
+
+## Intuition Trick
+
+Think of it like a **4-slot system**:
+
+| Slot | Meaning |
+|------|--------|
+| 1 | both qubits = 0 |
+| 2 | first 0, second 1 |
+| 3 | first 1, second 0 |
+| 4 | both 1 |
+
+Each slot has:
+- how much it contributes (size)
+- how it interferes (phase)
+
+---
+
+## Long Story Short
+Two qubits don’t behave like two separate things — they form one system with 4 possible states, each with its own amplitude. Circle notation just scales up: more qubits = more dials, not separate groups.
+
+# Connecting Wires — SWAP Gate Notes
+
+## Core Idea
+When qubits start interacting, we move from independent behavior to **correlated quantum systems**.  
+The **SWAP gate** is one of the simplest two-qubit gates — it literally **exchanges the positions of the two qubits**.
+
+Mathematically:
+|01⟩ ↔ |10⟩  
+|00⟩ → |00⟩  
+|11⟩ → |11⟩  
+
+So it only affects states where the qubits are different.
+
+---
+
+## Key Insights
+
+### 1. Two-qubit gates create interaction
+- Single-qubit gates: affect one wire
+- Two-qubit gates: affect **both wires simultaneously**
+- This is how quantum computers build **entanglement and correlations**
+
+---
+
+### 2. What SWAP really does
+Think of two qubits:
+- First qubit = left bit
+- Second qubit = right bit
+
+SWAP flips their positions:
+- |ab⟩ → |ba⟩
+
+Example:
+- |01⟩ → |10⟩
+- |10⟩ → |01⟩
+
+---
+
+### 3. In terms of amplitudes
+
+If:
+ψ = α|00⟩ + β|01⟩ + γ|10⟩ + δ|11⟩  
+
+After SWAP:
+ψ = α|00⟩ + γ|01⟩ + β|10⟩ + δ|11⟩  
+
+So:
+- β and γ **exchange places**
+- α and δ stay the same
+
+---
+
+### 4. In circle notation
+- Each basis state has its own dial
+- SWAP **does NOT change magnitudes or phases**
+- It only **reorders the dials**
+
+So:
+- The circles move positions
+- Their sizes and angles stay the same
+
+---
+
+### 5. Important property
+SWAP is its own inverse:
+
+SWAP · SWAP = Identity  
+
+Meaning:
+- Apply SWAP twice → you get original state back
+
+---
+
+## Intuition
+
+Think of two labeled boxes:
+- Box A (top qubit)
+- Box B (bottom qubit)
+
+SWAP = **physically exchanging the boxes**
+
+Nothing inside changes — just their positions.
+
+---
+
+## Long Story Short
+SWAP doesn’t change the quantum information itself — it just **relabels which qubit holds which part of the state** by swapping their positions.
+
+## In Control — Key Notes (Controlled Gates & CZ)
+
+### 1. Controlled gates idea
+A **controlled gate** applies an operation only if the control qubit is in state \(|1\rangle\).
+
+- **Control qubit:** decides whether anything happens  
+- **Target qubit:** gets the operation applied
+
+So the logic is:
+- If control = \(|0\rangle\) → do nothing  
+- If control = \(|1\rangle\) → apply the gate
+
+---
+
+### 2. Example: CZ (Controlled-Z)
+The **CZ gate** is a controlled phase gate.
+
+It acts like this on computational basis states:
+
+- \(|00\rangle \rightarrow |00\rangle\)
+- \(|01\rangle \rightarrow |01\rangle\)
+- \(|10\rangle \rightarrow |10\rangle\)
+- \(|11\rangle \rightarrow -|11\rangle\)
+
+So only one state changes:  
+\[
+CZ|11\rangle = -|11\rangle
+\]
+
+---
+
+### 3. Why CZ is important
+CZ is special because it introduces **phase logic**:
+
+- It does not change probabilities directly
+- It changes **relative phase**
+- That phase later affects interference
+
+This is essential for quantum algorithms.
+
+---
+
+### 4. Alternate name
+Because it flips the phase of \(|11\rangle\), CZ is also called:
+
+\[
+\text{CPHASE gate}
+\]
+
+---
+
+### 5. Big picture intuition
+Think of CZ like a rule:
+
+> “Only when both switches are ON (1,1), flip the sign.”
+
+---
+
+## Long story short
+A controlled gate acts only when the control is 1, and CZ specifically flips the sign of \(|11\rangle\), making it a key tool for quantum phase control.
+
+## Controlled vs Target Gate (Quantum Circuits)
+
+In a controlled gate (like **CZ**, **CNOT**, etc.), there are two roles:
+
+### 1. Control qubit
+- This is the “condition.”
+- It decides **whether anything happens or not**.
+- If the control is in \(|0\rangle\): nothing happens.
+- If the control is in \(|1\rangle\): the gate is activated.
+
+Think of it like:
+> A light switch that only works if someone flips the “enable button.”
+
+---
+
+### 2. Target qubit
+- This is the qubit that actually gets changed.
+- The gate (X, Z, H, etc.) is applied here **only if the control allows it**.
+
+Think of it like:
+> The light bulb that turns on/off, but only if the switch permits it.
+
+---
+
+## Simple Example: CNOT gate
+
+- Control: first qubit  
+- Target: second qubit  
+- Operation: flip target if control is 1
+
+| Control | Target (before) | Target (after) |
+|--------|----------------|----------------|
+| 0      | 0              | 0              |
+| 0      | 1              | 1              |
+| 1      | 0              | 1              |
+| 1      | 1              | 0              |
+
+---
+
+## Key idea
+
+- **Control = condition**
+- **Target = action**
+
+Without the control, it’s just a normal single-qubit gate.  
+With control, it becomes a “conditional operation” based on another qubit.
+
+---
+
+## Intuition shortcut
+
+A controlled gate is basically:
+
+> “Do this operation on the target ONLY IF the control says yes (is \(|1\rangle\)).”
+
+## CNOT Gate (Controlled-NOT) — Key Notes
+
+### Definition
+- The **CNOT gate** is a two-qubit gate.
+- It is a **controlled-X gate**:
+  - **Control qubit**: decides *whether* to act
+  - **Target qubit**: gets flipped *if condition is met*
+
+---
+
+### How It Works
+
+- If control = |0⟩ → **do nothing**
+- If control = |1⟩ → **apply X (NOT) to target**
+
+---
+
+### Truth Table
+
+| Input  | Output |
+|--------|--------|
+| |00⟩   | |00⟩   |
+| |01⟩   | |01⟩   |
+| |10⟩   | |11⟩   |
+| |11⟩   | |10⟩   |
+
+---
+
+### Key Insight
+- The **target flips only when control = 1**
+- This is why it's similar to a classical **XOR operation**
+
+---
+
+### How to Create |11⟩ from |00⟩
+
+Step-by-step:
+1. Apply **X gate** to the first qubit  
+   → |00⟩ → |10⟩  
+
+2. Apply **CNOT** (control = first qubit, target = second qubit)  
+   → |10⟩ → |11⟩  
+
+---
+
+### Why CNOT is Important
+
+- It is one of the **most important quantum gates**
+- Together with single-qubit gates, it forms a **universal gate set**
+- Enables:
+  - Entanglement
+  - Quantum algorithms
+  - Complex quantum logic
+
+---
+
+## Long story short
+CNOT = “**if control is 1, flip the target**.”  
+That simple rule is powerful enough to build *all* quantum computations.
+
+control ──●──
+           |
+target ─── X ─
+
+
+
+# Me First — Order of Gates Matters
+
+In quantum computing, the order of gates matters.
+
+Example:
+
+HX|0⟩ = |−⟩  
+but
+
+XH|0⟩ = |+⟩
+
+So:
+
+AB ≠ BA
+
+This means most quantum gates do not commute.
+
+---
+
+# What Does "Commute" Mean?
+
+Two gates commute if changing their order does not change the result.
+
+AB = BA
+
+Examples:
+- rotations around the same axis commute
+- identity gate commutes with everything
+
+---
+
+# Why Order Matters More in Multi-Qubit Systems
+
+With multiple qubits, gates can affect more than one qubit at once.
+
+Especially:
+- CNOT
+- CZ
+- controlled gates
+
+The timing of superposition and control operations changes the final state completely.
+
+Example:
+
+H before CNOT:
+- creates superposition first
+- then CNOT acts on all possibilities
+
+CNOT before H:
+- no superposition yet
+- completely different result
+
+---
+
+# Key Idea
+
+Quantum circuits are time-ordered instructions.
+
+Left → Right matters.
+
+Changing order changes:
+- amplitudes
+- phases
+- interference
+- entanglement
+- measurement probabilities
+
+---
+
+# Reversing a Circuit
+
+Quantum gates are reversible.
+
+To undo a circuit:
+- apply inverse gates
+- in reverse order
+
+Example:
+
+Original:
+A → B → C
+
+Undo:
+C⁻¹ → B⁻¹ → A⁻¹
+
+This returns the qubits to the original state.
+
+---
+
+# Long Story Short
+
+Gate order is critical in quantum computing because quantum operations usually do not commute. 
+The same gates in a different order can produce completely different quantum states.
+
+# Entangled
+
+## What Is Entanglement?
+
+Entanglement is a uniquely quantum type of correlation.
+
+After entanglement:
+
+- qubits stop behaving like separate independent objects
+- they become one combined quantum system
+
+Example entangled state:
+
+\[
+\frac{1}{\sqrt{2}}|00⟩ + \frac{1}{\sqrt{2}}|11⟩
+\]
+
+This means:
+
+- both qubits are linked
+- measuring one instantly tells you about the other
+
+If first qubit is measured as:
+
+- `0` → second is also `0`
+- `1` → second is also `1`
+
+But before measurement, BOTH possibilities exist simultaneously.
+
+---
+
+# Why Bloch Spheres Stop Working
+
+A Bloch sphere describes ONE qubit.
+
+But entangled qubits:
+- no longer have independent states
+- only the combined system has a proper description
+
+So:
+- two Bloch spheres are no longer enough
+
+That is why circle notation becomes useful.
+
+---
+
+# Standard Bell State Circuit
+
+Most famous entanglement circuit:
+
+```text
+|0⟩ --H----●--
+            |
+|0⟩ -------X--
+
+
+
+# Why All the H's?
+
+## Main Idea
+
+Applying an `H` gate to every qubit creates an equal superposition of ALL possible computational states.
+
+For 2 qubits:
+
+```text
+|00⟩
+|01⟩
+|10⟩
+|11⟩
+```
+
+all exist simultaneously with equal amplitude.
+
+---
+
+# Example
+
+Start:
+
+```text
+|00⟩
+```
+
+Apply H to both qubits:
+
+```text
+H⊗H |00⟩
+```
+
+Result:
+
+\[
+\frac{1}{2}
+(
+|00⟩ + |01⟩ + |10⟩ + |11⟩
+)
+\]
+
+Now every possible input exists at once.
+
+---
+
+# Why Quantum Algorithms Start This Way
+
+This creates a giant "workspace" containing all possibilities.
+
+Quantum algorithms then:
+1. compute on all states
+2. add phases
+3. use interference
+4. amplify correct answers
+5. suppress wrong answers
+
+This is the foundation of:
+- Grover’s search
+- Shor’s algorithm
+- many quantum algorithms
+
+---
+
+# Important Insight
+
+Classical logic gates:
+- only rearrange computational states
+- they do NOT destroy equal superposition
+
+Example:
+
+If all amplitudes are equal:
+
+\[
+|00⟩ + |01⟩ + |10⟩ + |11⟩
+\]
+
+and a classical gate swaps states around:
+
+```text
+|01⟩ ↔ |11⟩
+```
+
+the total state still looks identical because:
+- every state already had equal weight
+
+So the "all-superposition" state remains unchanged.
+
+---
+
+# Exercise Meaning
+
+The exercise wants you to notice:
+
+- classical reversible gates
+  like:
+  - X
+  - CNOT
+  - SWAP
+
+only permute states.
+
+But when every state already exists equally,
+nothing visibly changes.
+
+---
+
+# Example Circuit
+
+This still keeps the equal superposition unchanged:
+
+```text
+|0⟩ --H----●----
+            |
+|0⟩ --H----X----
+```
+
+Because CNOT only rearranges amplitudes.
+
+All amplitudes remain equal.
+
+---
+
+# Simple Analogy
+
+Imagine 4 cups each containing exactly the same amount of water.
+
+Classical logic gates:
+- just shuffle the cups around
+
+But since every cup already had equal water:
+- the overall system still looks identical.
+
+Quantum phase gates are different:
+- they can change the "sign" or phase
+- which later creates interference effects
+
+That is where quantum advantage really appears.
+
+---
+
+# Key Takeaway
+
+Superposition alone is NOT enough for quantum advantage.
+
+The real power comes from:
+- interference
+- phase manipulation
+- entanglement
+
+The H gates simply prepare the playground.
+
+---
+
+# Long Story Short
+
+Applying H to all qubits creates an equal superposition of every possible input state. 
+Classical logic gates only reshuffle these equally weighted states, so the overall superposition remains unchanged.
+
+# Powers of Two
+
+## Main Idea
+
+Every time you add a qubit:
+
+- the number of possible computational states doubles
+
+That means:
+
+\[
+\text{Number of states} = 2^n
+\]
+
+where:
+- \( n \) = number of qubits
+
+---
+
+# Examples
+
+| Qubits | Computational States |
+|---|---|
+| 1 | \(2^1 = 2\) |
+| 2 | \(2^2 = 4\) |
+| 3 | \(2^3 = 8\) |
+| 4 | \(2^4 = 16\) |
+| 10 | \(2^{10} = 1024\) |
+
+---
+
+# Three-Qubit States
+
+For 3 qubits:
+
+```text
+|000⟩
+|001⟩
+|010⟩
+|011⟩
+|100⟩
+|101⟩
+|110⟩
+|111⟩
+```
+
+Total:
+
+\[
+2^3 = 8
+\]
+
+possible computational states.
+
+---
+
+# Classical vs Quantum
+
+## Classical Computer
+
+A classical computer stores:
+
+ONLY ONE state at a time.
+
+Example:
+
+```text
+|101⟩
+```
+
+That is it.
+
+---
+
+## Quantum Computer
+
+A quantum computer can store:
+
+ALL states simultaneously in superposition.
+
+Example:
+
+\[
+\frac{1}{\sqrt{8}}
+(
+|000⟩ + |001⟩ + |010⟩ + |011⟩
++ |100⟩ + |101⟩ + |110⟩ + |111⟩
+)
+\]
+
+This means:
+- every state exists together
+- each has equal probability amplitude
+
+---
+
+# How To Create Equal Superposition
+
+Apply an `H` gate to EACH qubit.
+
+For 3 qubits:
+
+```text
+|0⟩ --H--
+|0⟩ --H--
+|0⟩ --H--
+```
+
+Each H doubles the number of active states.
+
+---
+
+# Step-by-Step Growth
+
+## Start
+
+```text
+|000⟩
+```
+
+---
+
+## After First H
+
+\[
+\frac{1}{\sqrt{2}}
+(
+|000⟩ + |100⟩
+)
+\]
+
+2 states.
+
+---
+
+## After Second H
+
+\[
+\frac{1}{2}
+(
+|000⟩ + |010⟩ + |100⟩ + |110⟩
+)
+\]
+
+4 states.
+
+---
+
+## After Third H
+
+\[
+\frac{1}{\sqrt{8}}
+(
+|000⟩ + |001⟩ + |010⟩ + |011⟩
++ |100⟩ + |101⟩ + |110⟩ + |111⟩
+)
+\]
+
+8 states.
+
+---
+
+# Why This Matters
+
+The state space grows EXPONENTIALLY.
+
+That is why:
+- quantum systems become extremely hard to simulate
+- adding only a few qubits massively increases complexity
+
+Example:
+
+\[
+275 \text{ qubits} \Rightarrow 2^{275} \text{ amplitudes}
+\]
+
+which is more than the estimated number of atoms in the observable universe.
+
+---
+
+# Important Insight
+
+Quantum computers are NOT storing:
+- many classical answers separately
+
+Instead they store:
+- one giant quantum state
+- described by exponentially many amplitudes
+
+That is the real source of quantum complexity.
+
+---
+
+# Long Story Short
+
+Every added qubit doubles the number of computational states. Applying H gates to all qubits creates a superposition of all possible states simultaneously, causing quantum systems to grow exponentially fast in complexity.
+
+
+
+
+# Control, Control...
+
+# CCNOT (Toffoli Gate)
+
+The `CCNOT` gate means:
+
+```text
+Controlled-Controlled-X
+```
+
+It has:
+- 2 control qubits
+- 1 target qubit
+
+The target flips ONLY if BOTH controls are `|1⟩`.
+
+---
+
+# Visual Symbol
+
+```text
+q0 ──●──
+      |
+q1 ──●──
+      |
+q2 ──X──
+```
+
+- top 2 qubits = controls
+- bottom qubit = target
+
+---
+
+# How It Works
+
+If controls are:
+
+```text
+|11⟩
+```
+
+then:
+- apply X to target
+
+Otherwise:
+- do nothing
+
+---
+
+# Truth Table
+
+```text
+|000⟩ → |000⟩
+|001⟩ → |001⟩
+|010⟩ → |010⟩
+|011⟩ → |011⟩
+|100⟩ → |100⟩
+|101⟩ → |101⟩
+|110⟩ → |111⟩
+|111⟩ → |110⟩
+```
+
+Only the last two states change.
+
+---
+
+# Why It Matters
+
+## X Gate
+
+Acts like:
+```text
+NOT
+```
+
+---
+
+## CNOT Gate
+
+Acts like:
+```text
+XOR
+```
+
+---
+
+## CCNOT Gate
+
+Acts like:
+```text
+AND-controlled NOT
+```
+
+This makes it extremely important for:
+- reversible computing
+- quantum logic
+- quantum arithmetic
+
+---
+
+# NAND Gate
+
+The exercise asks you to create a:
+
+```text
+NAND
+```
+
+Recall:
+
+```text
+NAND = NOT(AND)
+```
+
+Truth table:
+
+| A | B | NAND |
+|---|---|---|
+| 0 | 0 | 1 |
+| 0 | 1 | 1 |
+| 1 | 0 | 1 |
+| 1 | 1 | 0 |
+
+---
+
+# How To Build Quantum NAND
+
+Step 1:
+Use `CCNOT`
+
+This computes AND behavior.
+
+---
+
+Step 2:
+Apply an `X` gate
+
+This flips:
+```text
+AND → NAND
+```
+
+---
+
+# Circuit Idea
+
+```text
+control ──●──────
+           |
+control ──●──────
+           |
+target ───X──X──
+```
+
+First:
+- CCNOT computes AND-like behavior
+
+Then:
+- X flips the output
+
+Result:
+```text
+NAND
+```
+
+---
+
+# Important Quantum Idea
+
+The Toffoli gate is VERY important because:
+
+Classical NAND gates are universal for classical computing.
+
+Similarly:
+- CCNOT + single qubit gates
+can build universal reversible computation.
+
+---
+
+# Simple Analogy
+
+## CNOT
+
+One friend gives permission:
+```text
+"If I say yes, flip the switch."
+```
+
+---
+
+## CCNOT
+
+Two friends must BOTH agree:
+```text
+"If BOTH say yes, flip the switch."
+```
+
+---
+
+# Long Story Short
+
+The CCNOT (Toffoli) gate flips a target qubit only when BOTH control qubits are `|1⟩`.
+By combining CCNOT with an X gate, you can create a quantum NAND gate.
+
+
+
+
+# And More Control!
+
+## CCZ Gate
+
+The `CCZ` (Controlled-Controlled-Z) gate:
+
+- Applies a phase flip ONLY to:
+
+```text
+|111⟩ → -|111⟩
+```
+
+- Leaves all other states unchanged.
+
+---
+
+## Key Property
+
+Unlike CCNOT:
+- CCZ does NOT change bit values
+- It only changes the phase
+
+So:
+
+```text
+|111⟩ → -|111⟩
+```
+
+Everything else stays:
+
+```text
+|000⟩, |001⟩, ..., |110⟩ → unchanged
+```
+
+---
+
+## Why Control Doesn’t Matter Here
+
+Because CCZ only acts on:
+
+```text
+|111⟩
+```
+
+it doesn’t matter which qubit is labeled:
+- control
+- target
+
+All are symmetric in this gate.
+
+---
+
+## Task Idea
+
+Goal:
+
+Create:
+
+```text
+|111⟩
+```
+
+starting from:
+
+```text
+|000⟩
+```
+
+---
+
+## Minimal Gate Strategy
+
+To reach `|111⟩`, you just need to flip all qubits.
+
+Use `X` gates:
+
+### Step-by-step:
+
+```text
+|000⟩
+```
+
+Apply:
+
+```text
+X on qubit 0
+X on qubit 1
+X on qubit 2
+```
+
+Result:
+
+```text
+|111⟩
+```
+
+---
+
+## Circuit Representation
+
+```text
+q0 ──X──
+q1 ──X──
+q2 ──X──
+```
+
+---
+
+## Important Insight
+
+Even though CCZ acts in superposition:
+
+- the **basis state |111⟩ is just a classical configuration**
+- so preparing it only needs classical-style X flips
+
+No entanglement is required to reach it.
+
+---
+
+## Big Idea
+
+- CCZ = phase-only entangling gate
+- X gates = state preparation tools
+
+Together they enable:
+- complex interference patterns
+- multi-qubit phase logic
+
+---
+
+## Long Story Short
+
+To create |111⟩ from |000⟩, simply apply X gates to all three qubits.
+CCZ only affects phase, not how you prepare the basis state.
+
+
+
+# Inversion (Quantum Gates)
+
+## Core Idea
+
+An inverse gate “undoes” another gate.
+
+If:
+
+```text
+A → B
+```
+
+and applying both gives:
+
+```text
+B A = Identity (do nothing)
+```
+
+then:
+
+```text
+B = A⁻¹ = A†
+```
+
+---
+
+## Notation
+
+Two equivalent ways:
+
+```text
+A⁻¹   (inverse)
+A†    (dagger / conjugate transpose)
+```
+
+---
+
+## Example: Self-Inverse Gates
+
+Some gates undo themselves:
+
+### X gate
+
+```text
+X X = I
+```
+
+So:
+
+```text
+X⁻¹ = X
+```
+
+---
+
+### H gate
+
+```text
+H H = I
+```
+
+So:
+
+```text
+H⁻¹ = H
+```
+
+---
+
+## Important Rule (Very Important)
+
+### Reverse Order Rule
+
+If a circuit is:
+
+```text
+S → X → H
+```
+
+Then the inverse is:
+
+```text
+H⁻¹ → X⁻¹ → S⁻¹
+```
+
+So:
+
+```text
+H → X → S†
+```
+
+because:
+- H⁻¹ = H
+- X⁻¹ = X
+- S⁻¹ = S†
+
+---
+
+## Why Order Reverses
+
+Think of it like actions:
+
+```text
+Put on socks → Put on shoes → Tie laces
+```
+
+To undo:
+
+```text
+Untie laces → Remove shoes → Remove socks
+```
+
+You must reverse the sequence.
+
+---
+
+## Circuit Inversion Rule
+
+If a circuit is:
+
+```text
+U = A B C
+```
+
+Then:
+
+```text
+U⁻¹ = C⁻¹ B⁻¹ A⁻¹
+```
+
+---
+
+## Key Quantum Insight
+
+Even though gates are “unitary” and reversible:
+
+- order matters
+- reversing requires both:
+  - inverting each gate
+  - reversing sequence
+
+---
+
+## Long Story Short
+
+Quantum gates are reversible. To invert a circuit, reverse the order of gates and replace each gate with its inverse (or itself if it is self-inverse like X or H).
+
+
+
+
+
+# Some Things Are Easy...
+
+## Key Idea
+
+We are working with a universal gate set:
+
+- `H` (Hadamard)
+- `CCNOT` (Toffoli gate)
+
+Together, they can build any quantum computation.
+
+---
+
+## Important Identity
+
+From earlier:
+
+```text
+HXH = Z
+```
+
+So:
+
+- CCNOT + H can reproduce phase behavior (like CCZ)
+
+---
+
+## Current Goal
+
+We want to:
+
+```text
+Return the state to |00⟩
+```
+
+That means:
+- undo all transformations in the circuit
+- apply the correct inverse effect
+
+---
+
+## Strategy
+
+To return a system to:
+
+```text
+|00⟩
+```
+
+we typically:
+
+### Step 1: Identify flipped qubits
+Look for qubits that may have been flipped by X or controlled-X behavior.
+
+### Step 2: Undo with X gates
+Since:
+
+```text
+X X = I
+```
+
+applying `X` again reverses the flip.
+
+---
+
+## Key Insight
+
+If the circuit has produced any unwanted basis state changes (like):
+
+```text
+|10⟩, |01⟩, |11⟩
+```
+
+you fix them using:
+
+```text
+X gates on the affected qubits
+```
+
+---
+
+## Minimal Solution Idea
+
+To return to:
+
+```text
+|00⟩
+```
+
+apply:
+
+```text
+X on qubit 0 (if it is 1)
+X on qubit 1 (if it is 1)
+```
+
+This flips any `1 → 0`.
+
+---
+
+## Why This Works
+
+Because computational basis states are classical:
+
+- X acts like NOT
+- NOT is its own inverse
+
+So correcting bit-flips restores the original state.
+
+---
+
+## Final Circuit Idea
+
+```text
+q0 ──X──
+q1 ──X──
+```
+
+(only apply where needed depending on circuit output)
+
+---
+
+## Big Picture
+
+Even though quantum circuits may include:
+- superposition (H)
+- entanglement (CCNOT)
+
+Returning to a basis state often reduces to:
+- identifying bit flips
+- applying classical-style corrections
+
+---
+
+## Long Story Short
+
+To return the circuit to |00⟩, apply X gates to flip any qubits that were turned into 1s. 
+Since X is its own inverse, this restores the original state.
+
+
+
+
+
+# Some Things Are Hard
+
+## Goal
+
+We want to understand how:
+
+```text
+CCNOT (Toffoli gate)
+```
+
+can be built using only:
+
+- CNOT
+- H
+- S
+- T
+
+This is called **gate compilation**.
+
+---
+
+## Why This Matters
+
+In real quantum computers:
+
+- 3-qubit gates are hard to implement directly
+- 1-qubit and 2-qubit gates are much easier
+
+So we decompose complex gates into simpler ones.
+
+---
+
+## Universal Gate Set
+
+A common universal set is:
+
+```text
+{H, S, T, CNOT}
+```
+
+This means:
+> Any quantum computation can be built from these.
+
+---
+
+## Key Idea: What CCNOT Does
+
+CCNOT flips the target qubit only when:
+
+```text
+|control1 control2⟩ = |11⟩
+```
+
+So:
+
+```text
+|110⟩ → |111⟩
+|111⟩ → |110⟩
+```
+
+Everything else stays the same.
+
+---
+
+## Why It Is Hard
+
+We cannot directly "check two conditions" easily in quantum hardware.
+
+So instead we:
+
+- convert logic into phase tricks
+- use interference
+- use H, T, S to create conditional phase effects
+- use CNOT to spread and recombine information
+
+---
+
+## Intuition Behind the Construction
+
+The compiled CCNOT circuit works by:
+
+### 1. Turning control information into phase
+Using:
+- H gates (create superposition)
+- T / S gates (add controlled phase)
+
+---
+
+### 2. Distributing control using CNOT
+CNOT copies correlations between qubits.
+
+---
+
+### 3. Interference step
+When paths recombine:
+- correct states reinforce
+- wrong states cancel out
+
+---
+
+### 4. Final correction
+Final gates restore computational basis,
+leaving only the desired flip on |11⟩.
+
+---
+
+## Why the Last Qubit Flips
+
+The flip happens because:
+
+- only the |11⟩ branch accumulates a full phase pattern
+- interference transforms that phase into a bit flip effect
+
+So effectively:
+
+```text
+|11⟩ → flips target qubit
+others → unchanged
+```
+
+---
+
+## Mental Picture
+
+Think of it like:
+
+- multiple “routes” through a circuit
+- each route adds a phase delay
+- only one route lines up perfectly
+- that route triggers a flip when everything recombines
+
+---
+
+## Key Takeaway
+
+CCNOT is not a single action in hardware.
+
+It is:
+
+> a carefully engineered interference pattern using simpler gates.
+
+---
+
+## Long Story Short
+
+CCNOT is built from H, S, T, and CNOT by using superposition and interference to mimic a 3-qubit controlled operation. 
+Only the |11⟩ case accumulates the right phase pattern, which results in the final qubit flipping.
+
+
+
+# Control All the Things
+
+## CSWAP (Fredkin Gate)
+
+The `CSWAP` gate is a **controlled swap**:
+
+- If control = `|1⟩` → swap the two target qubits
+- If control = `|0⟩` → do nothing
+
+---
+
+## Structure
+
+```text
+control ──●──────────
+           |
+target  ──X──X───────
+target  ──X──X───────
+```
+
+(Conceptually: swap only when control is 1)
+
+---
+
+## What It Does
+
+If control is:
+
+### |0⟩
+
+```text
+|0ab⟩ → |0ab⟩
+```
+
+Nothing changes.
+
+---
+
+### |1⟩
+
+```text
+|1ab⟩ → |1ba⟩
+```
+
+Targets are swapped.
+
+---
+
+## Key Example
+
+Only these two states change:
+
+```text
+|101⟩ ↔ |110⟩
+```
+
+Everything else stays the same.
+
+---
+
+## Building SWAP from CNOT
+
+We already know:
+
+```text
+SWAP = CNOT → CNOT → CNOT
+```
+
+So SWAP is decomposable into 3 CNOTs.
+
+---
+
+## Building CSWAP Using CCNOT
+
+To control the SWAP:
+
+We replace the conditional logic using `CCNOT`.
+
+---
+
+## Core Idea
+
+We want:
+
+```text
+If control = 1:
+    swap(target1, target2)
+```
+
+We simulate this by:
+
+- using CCNOT to condition operations on control qubit
+- embedding SWAP structure into controlled logic
+
+---
+
+## Conceptual Construction
+
+CSWAP can be built from CCNOT gates by:
+
+1. Breaking SWAP into 3 CNOTs
+2. Replacing each CNOT with a controlled version (CCNOT-style logic)
+
+So effectively:
+
+```text
+CSWAP = controlled(CNOT) + controlled(CNOT) + controlled(CNOT)
+```
+
+implemented using CCNOT structure.
+
+---
+
+## Why It Works
+
+Because:
+
+- SWAP = permutation of basis states
+- CCNOT = conditional bit-flip control
+- combining them allows conditional permutation
+
+So only when:
+
+```text
+control = |1⟩
+```
+
+the permutation happens.
+
+---
+
+## Intuition
+
+Think of CSWAP like a rule:
+
+> “Only if the boss says YES (control = 1), exchange the two items.”
+
+Otherwise:
+- leave everything untouched
+
+---
+
+## Key Observation
+
+The swap only affects:
+
+```text
+|101⟩ ↔ |110⟩
+```
+
+because:
+- those are exactly the states where control = 1 AND targets differ
+
+---
+
+## Long Story Short
+
+CSWAP performs a swap between two qubits only when a control qubit is 1. It can be built using CCNOT gates by conditionally applying the SWAP decomposition (3 CNOTs), ensuring only the |101⟩ and |110⟩ states are exchanged.

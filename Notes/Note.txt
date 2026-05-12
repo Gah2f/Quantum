@@ -5737,3 +5737,1502 @@ because:
 ## Long Story Short
 
 CSWAP performs a swap between two qubits only when a control qubit is 1. It can be built using CCNOT gates by conditionally applying the SWAP decomposition (3 CNOTs), ensuring only the |101⟩ and |110⟩ states are exchanged.
+
+
+
+
+# Logic + Logic
+
+## Core Idea
+
+Quantum computers can compute on multiple inputs at the same time using:
+
+```text
+Superposition
+```
+
+created with:
+
+```text
+H gates
+```
+
+This is the foundation of:
+- quantum parallelism
+- compute in superposition
+
+---
+
+# Classical vs Quantum
+
+## Classical Computer
+
+Processes one input at a time:
+
+```text
+000 → 001
+then
+001 → 010
+then
+010 → 011
+```
+
+One-by-one.
+
+---
+
+## Quantum Computer
+
+Using H gates:
+
+```text
+|000⟩ + |001⟩ + |010⟩ + ...
+```
+
+Now the same circuit acts on ALL states simultaneously.
+
+---
+
+# Increment Circuit
+
+Increment means:
+
+```text
++1
+```
+
+Examples:
+
+```text
+000 → 001
+001 → 010
+010 → 011
+```
+
+like binary counting.
+
+---
+
+# Decrement Circuit
+
+The inverse operation:
+
+```text
+-1
+```
+
+Examples:
+
+```text
+101 → 100
+100 → 011
+```
+
+---
+
+# Exercise Goal
+
+Decrement:
+
+```text
+100 and 101
+```
+
+simultaneously.
+
+---
+
+# What Happens
+
+Apply decrement:
+
+```text
+100 → 011
+101 → 100
+```
+
+Both happen at once if states are in superposition.
+
+---
+
+# Important Quantum Insight
+
+The circuit itself does NOT know:
+- which input it has
+
+It simply:
+- evolves every amplitude simultaneously
+
+That’s the power of superposition.
+
+---
+
+# Why This Is Cool
+
+Instead of:
+
+```text
+Run once for 100
+Run again for 101
+```
+
+Quantum circuits can process:
+
+```text
+|100⟩ + |101⟩
+```
+
+in one computation.
+
+---
+
+# Mental Picture
+
+Think of it like:
+
+## Classical
+
+One student solving:
+```text
+one math problem at a time
+```
+
+---
+
+## Quantum
+
+A magical worksheet where:
+```text
+all problems are worked on simultaneously
+```
+
+until measurement picks an outcome.
+
+---
+
+# Key Detail
+
+Quantum parallelism alone is NOT enough.
+
+You still need:
+- interference
+- phase logic
+- measurement strategy
+
+to extract useful answers.
+
+---
+
+# Long Story Short
+
+Quantum computers use superposition to apply the same logic circuit to many inputs simultaneously. 
+A decrement circuit subtracts 1 from binary numbers, so 100 → 011 and 101 → 100 can happen at the same time in superposition.
+
+
+
+# Scratching the Surface — Notes
+
+## Scratch Qubits (Ancilla Qubits)
+
+Sometimes a quantum circuit needs **extra temporary qubits** to help perform calculations.
+
+These helper qubits are called:
+
+- **Scratch qubits**
+- **Ancilla qubits**
+
+They are not part of:
+- the original input
+- the final output
+
+They are just temporary workspace.
+
+---
+
+# Main Idea
+
+Suppose we want:
+
+\[
+x \text{ AND } y \text{ AND } z
+\]
+
+The output should be:
+
+| x | y | z | Output |
+|---|---|---|---|
+| 0 | 0 | 0 | 0 |
+| 0 | 0 | 1 | 0 |
+| 0 | 1 | 0 | 0 |
+| 0 | 1 | 1 | 0 |
+| 1 | 0 | 0 | 0 |
+| 1 | 0 | 1 | 0 |
+| 1 | 1 | 0 | 0 |
+| 1 | 1 | 1 | 1 |
+
+Only all 1s produce 1.
+
+---
+
+# Problem
+
+A direct implementation would require:
+
+\[
+CCCNOT
+\]
+
+(Triple-controlled NOT gate)
+
+But this is a **4-qubit gate**, which is difficult.
+
+---
+
+# Solution: Use a Scratch Qubit
+
+Instead of:
+
+\[
+CCCNOT
+\]
+
+we use:
+
+- two \(CCNOT\) gates
+- one scratch qubit
+
+---
+
+# Step-by-Step Logic
+
+## Step 1
+
+Use a \(CCNOT\) on:
+
+- controls: \(x, y\)
+- target: scratch qubit
+
+This stores:
+
+\[
+x \text{ AND } y
+\]
+
+inside the scratch qubit.
+
+---
+
+## Step 2
+
+Use another \(CCNOT\):
+
+- controls: scratch qubit and \(z\)
+- target: output qubit
+
+Now the output becomes:
+
+\[
+(x \text{ AND } y) \text{ AND } z
+\]
+
+which equals:
+
+\[
+x \text{ AND } y \text{ AND } z
+\]
+
+---
+
+# Controlled-Controlled T Gate
+
+The task asks you to create a:
+
+\[
+CCT
+\]
+
+(Controlled-Controlled-T gate)
+
+Meaning:
+
+Apply a \(T\) gate only if BOTH controls are \(1\).
+
+---
+
+# How to Build It
+
+Since there is no direct \(CCT\) gate:
+
+## Step 1
+
+Use \(CCNOT\) to compute:
+
+\[
+control_1 \land control_2
+\]
+
+into the scratch qubit.
+
+---
+
+## Step 2
+
+Use the scratch qubit as the control for a normal controlled-\(T\) operation.
+
+Meaning:
+
+- if scratch = 1
+- apply \(T\) to target qubit
+
+---
+
+## Step 3 (Important)
+
+Uncompute the scratch qubit.
+
+Apply the same \(CCNOT\) again to reset scratch back to:
+
+\[
+|0\rangle
+\]
+
+This avoids leftover garbage information.
+
+---
+
+# Big Quantum Computing Idea
+
+Quantum circuits often follow this pattern:
+
+1. Compute temporary information
+2. Use it
+3. Uncompute it
+
+This is extremely important in quantum algorithms.
+
+---
+
+# Quick Analogy
+
+Hey browser,
+
+Imagine solving a math problem on scratch paper.
+
+You:
+- write temporary calculations
+- use them
+- erase the paper afterward
+
+Scratch qubits work exactly like that temporary scratch paper.
+
+---
+
+# Long Story Short
+
+- Scratch qubits are temporary helper qubits
+- They help build larger controlled operations
+- \(CCNOT\) + scratch qubit can simulate more complex gates
+- After using scratch qubits, we usually "clean them up" by uncomputing
+
+
+
+# Reversible Computers
+
+## Main Idea
+Quantum gates must be **reversible**.
+
+That means:
+
+- You must always be able to recover the input from the output.
+- Classical AND and XOR lose information.
+- Quantum computers avoid this by storing results in extra qubits.
+
+---
+
+# Classical AND
+
+| x | y | AND |
+|---|---|---|
+| 0 | 0 | 0 |
+| 0 | 1 | 0 |
+| 1 | 0 | 0 |
+| 1 | 1 | 1 |
+
+Problem:
+
+If the output is `0`, you cannot know the original inputs.
+
+So AND is **not reversible**.
+
+---
+
+# Quantum Solution
+
+Instead of overwriting bits, quantum circuits:
+
+- keep original inputs
+- store result in another qubit
+
+Example:
+
+|xy0⟩ → |xy(x AND y)⟩
+
+This is implemented using:
+
+- `CCNOT` (Toffoli gate)
+
+---
+
+# XOR in Quantum
+
+Classical XOR:
+
+0⊕0 = 0  
+0⊕1 = 1  
+1⊕0 = 1  
+1⊕1 = 0  
+
+Quantum version uses:
+
+- `CNOT`
+
+because:
+
+|xy⟩ → |x(x⊕y)⟩
+
+The first qubit stays unchanged, making it reversible.
+
+---
+
+# Exercise Goal
+
+Create a circuit for:
+
+ONLY y
+
+Meaning:
+
+- output = 1 only when y = 1
+
+Target superposition:
+
+(|110⟩ + |011⟩)/√2
+
+---
+
+# Understanding the Target State
+
+## State 1
+
+|110⟩
+
+means:
+
+- x = 1
+- y = 1
+- output = 0
+
+## State 2
+
+|011⟩
+
+means:
+
+- x = 0
+- y = 1
+- output = 1
+
+Notice:
+
+- y is always 1
+- output depends on ONLY y
+
+---
+
+# Important Quantum Idea
+
+Quantum computing is not:
+
+input → output
+
+It is:
+
+input + memory + output
+
+because information can never truly disappear.
+
+---
+
+# Mental Analogy
+
+## Classical computer
+
+Like erasing old text and writing new text.
+
+## Quantum computer
+
+Like keeping the original page and writing answers in another column.
+
+That preserves reversibility.
+
+
+
+
+
+
+
+# Uncompute
+
+## Main Idea
+In quantum computing, scratch qubits (ancilla qubits) cannot just be erased like temporary memory in classical computers because quantum operations must be reversible.
+
+So after using a scratch qubit, we must restore it back to `|0⟩`.
+
+This process is called:
+
+> **Uncomputation**
+
+---
+
+# Why Uncompute?
+
+Suppose we used a scratch qubit to help compute something.
+
+If we leave garbage information inside it:
+
+- it may stay entangled
+- it can interfere with later calculations
+- the computation is no longer “clean”
+
+So we:
+
+1. Compute
+2. Store the final answer
+3. Reverse the helper operations
+
+This returns the scratch qubit to `|0⟩`.
+
+---
+
+# Example Structure
+
+## Step 1 — Compute temporary value
+
+Use a `CCNOT` to store a condition into the scratch qubit.
+
+Example:
+
+```text
+a,b → scratch
+
+
+
+
+# Kicking Phases
+
+## Main Idea
+
+Before this lesson, the **control qubit** looked passive:
+- Control checks if it is `|1⟩`
+- Target gets modified
+
+But quantum mechanics allows something strange:
+
+> The phase can “flow back” from the target to the control.
+This is called **phase kickback**.
+---
+# Normal CNOT Thinking
+
+A CNOT gate means:
+
+- If control = `|1⟩`
+- Flip the target qubit
+
+So classically:
+
+```text
+Control → affects → Target
+
+
+
+
+
+# Phase Logic
+
+## Main Idea
+
+Normal quantum logic changes computational states:
+
+|0⟩ ↔ |1⟩
+
+Phase logic changes the **phase/sign** of states instead:
+
++ → −
+
+without changing the actual state.
+
+---
+
+## Z Gate as Phase Logic
+
+The Z gate flips the phase of |1⟩:
+
+Z|0⟩ = |0⟩  
+Z|1⟩ = −|1⟩
+
+The qubit value stays the same — only the sign changes.
+
+---
+
+## Turning Z into a Phase NOT
+
+Using X gates around Z:
+
+X → Z → X
+
+moves the phase flip from |1⟩ to |0⟩.
+
+Instead of:
+
+|1⟩ → −|1⟩
+
+we get:
+
+|0⟩ → −|0⟩
+
+---
+
+## CZ Gate
+
+The controlled-Z (CZ) gate acts like a phase AND gate.
+
+CZ performs:
+
+|00⟩ → |00⟩  
+|01⟩ → |01⟩  
+|10⟩ → |10⟩  
+|11⟩ → −|11⟩
+
+Only |11⟩ gets its phase flipped.
+
+This matches AND logic because AND is true only when both bits are 1.
+
+---
+
+## Phase NOR
+
+NOR means:
+
+NOT(OR)
+
+In phase logic, we want only |00⟩ to get a minus sign:
+
+|00⟩ → −|00⟩  
+|01⟩ → |01⟩  
+|10⟩ → |10⟩  
+|11⟩ → |11⟩
+
+---
+
+## Building the Phase NOR Circuit
+
+CZ naturally flips |11⟩:
+
+CZ : |11⟩ → −|11⟩
+
+So we temporarily transform |00⟩ into |11⟩ using X gates.
+
+Circuit:
+
+X on both qubits  
+→ CZ  
+→ X on both qubits
+
+---
+
+## Why It Works
+
+The X gates swap:
+
+|0⟩ ↔ |1⟩
+
+So:
+
+|00⟩ becomes |11⟩
+
+Then CZ flips the phase:
+
+|11⟩ → −|11⟩
+
+Finally, the last X gates restore the original computational states.
+
+Result:
+
+Only |00⟩ gets a minus sign.
+
+---
+
+## Final Circuit
+
+X ─●─ X  
+    │  
+X ─Z─ X
+
+Steps:
+
+1. Apply X to qubit 1
+2. Apply X to qubit 2
+3. Apply CZ
+4. Apply X to qubit 1
+5. Apply X to qubit 2
+
+---
+
+## Long Story Short
+
+Phase logic changes signs instead of bit values.
+
+- Z flips the phase of |1⟩
+- CZ flips the phase of |11⟩
+- X gates can move the phase flip to different states
+
+Phase NOR flips only:
+
+|00⟩ → −|00⟩
+
+using:
+
+X → CZ → X
+
+on both qubits.
+
+
+
+
+
+
+
+
+# Set Phases to Fun
+
+## Main Idea
+
+Quantum computers do not gain power only from superposition.
+
+The real power comes from:
+
+- Superposition
+- Phase manipulation
+- Interference
+
+A phase flip by itself cannot be directly measured.
+
+Example:
+
+|1111⟩ → −|1111⟩
+
+The amplitudes still have the same magnitude, so measurements cannot immediately detect the difference.
+
+---
+
+## Why Phases Matter
+
+Even though phases are invisible to direct measurement, they affect interference.
+
+Quantum algorithms use interference to:
+
+- strengthen desired states
+- cancel unwanted states
+
+This process is called:
+
+Amplitude Amplification
+
+---
+
+## Interference Idea
+
+Think of amplitudes like waves.
+
+- Waves with the same phase reinforce each other
+- Waves with opposite phases cancel each other
+
+The goal is to use interference so the desired state becomes much larger than the others.
+
+---
+
+## Amplitude Amplification
+
+The process works like this:
+
+1. Create superposition
+2. Flip the phase of the target state
+3. Apply interference operations
+4. Increase the amplitude of the target state
+
+Eventually the target state's probability becomes very close to 1.
+
+---
+
+## Two-Qubit Example
+
+The circuit flips the phase of:
+
+|10⟩ → −|10⟩
+
+Initially all four states have equal amplitudes:
+
+|00⟩  
+|01⟩  
+|10⟩  
+|11⟩
+
+After phase flipping, only |10⟩ has a negative phase.
+
+The interference circuit then converts this phase difference into amplitude growth.
+
+Result:
+
+|10⟩ gets amplified to probability 1.
+
+---
+
+## Interference Circuit Structure
+
+Amplitude amplification commonly uses:
+
+1. H gates
+2. Phase flips
+3. More H gates
+4. Reflection operations
+
+The H gates mix amplitudes together so phases can interfere.
+
+---
+
+## Key Insight
+
+Phase changes alone are invisible.
+
+But after interference:
+
+phase differences  
+→ become amplitude differences  
+→ become measurement probabilities
+
+This is one of the most important ideas in quantum algorithms.
+
+---
+
+## Connection to Grover’s Algorithm
+
+Amplitude amplification is the core idea behind:
+
+Grover’s Search Algorithm
+
+Grover’s algorithm repeatedly:
+
+- flips the target phase
+- amplifies the target amplitude
+
+until the correct answer dominates the system.
+
+---
+
+## Long Story Short
+
+Quantum advantage comes from controlling interference.
+
+Steps:
+
+1. Put states in superposition
+2. Flip the phase of the desired state
+3. Use interference to amplify it
+
+Phase differences themselves cannot be measured directly, but interference converts them into measurable probability differences.
+
+That is the foundation of amplitude amplification and Grover-style quantum search.
+
+
+
+
+# Worst. Phonebook. Ever
+
+## Unstructured Search Idea
+
+If a phonebook (or database) is **unsorted**, there is no pattern to exploit.  
+So the only way to find an item is to check entries one by one.
+
+This is called **unstructured search**.
+
+---
+
+## Worst-Case Complexity
+
+If there are **N elements**, the worst case is that the item is at the very end.
+
+So we must check all entries:
+
+- Worst case: **N queries**
+- Complexity: **O(N)**
+
+---
+
+## Average Case Complexity
+
+On average, the item is expected to be found halfway through the list.
+
+So the average number of checks is:
+
+- **N / 2**
+
+But in Big-O notation:
+
+- **O(N)** (constants are ignored)
+
+---
+
+## Key Insight
+
+Even though the average case is better than the worst case, both scale linearly with N.
+
+That means:
+
+- Doubling the data → doubles the search time
+
+---
+
+## Why Quantum Search Matters
+
+Quantum search (Grover’s algorithm) improves this by using:
+
+- superposition
+- phase flipping
+- interference
+- amplitude amplification
+
+Instead of checking entries one by one, it searches in:
+
+- **O(√N)** steps
+
+---
+
+## Summary
+
+- Classical average search: **N / 2 → O(N)**
+- Classical worst case: **N → O(N)**
+- Quantum search: **√N → O(√N)**
+
+Quantum computers don’t just search faster—they change how scaling works.
+
+Example:
+- N = 1,000,000  
+- Worst case = **1,000,000 checks**
+
+---
+
+## Average Case
+
+On average, you find the item halfway through:
+
+- Searches needed = **N / 2**
+
+Example:
+- N = 1,000,000  
+- Average case = **500,000 checks**
+
+---
+
+## Complexity
+
+Even though average is N/2, we ignore constants in Big-O notation:
+
+- Worst case: **O(N)**
+- Average case: **O(N)**
+
+---
+
+## Quantum Search Comparison
+
+Grover’s quantum algorithm changes this scaling:
+
+- Classical: **N**
+- Quantum: **√N**
+
+Example:
+
+If N = 1,000,000:
+
+| Method      | Number of checks |
+|------------|-----------------|
+| Classical average | 500,000 |
+| Classical worst   | 1,000,000 |
+| Quantum search    | 1,000 |
+
+
+
+
+
+# Oracles and Queries
+
+## Problem Setup
+
+We model search using an **oracle (black-box function)**:
+
+f(x) → {0, 1}
+
+- f(x) = 1 → x is the correct answer  
+- f(x) = 0 → x is not the correct answer  
+
+---
+
+## Given
+
+There are 4 possible inputs:
+
+00, 01, 10, 11
+
+The correct answer is:
+
+00
+
+---
+
+## What function should the oracle compute?
+
+We need a function that outputs:
+
+| Input | Output |
+|------|--------|
+| 00   | 1 |
+| 01   | 0 |
+| 10   | 0 |
+| 11   | 0 |
+
+---
+
+## Logic Function
+
+This is an equality-check function:
+
+f(x) = 1 if x = 00  
+f(x) = 0 otherwise  
+
+---
+
+## Boolean Form
+
+If x = x₁x₂, then:
+
+f(x) = ¬x₁ AND ¬x₂
+
+---
+
+## Final Answer
+
+f(x) = 1 only for input 00, and 0 for all other inputs.
+
+---
+
+## Long story short
+
+The oracle is a function that checks whether the input equals **00** and returns 1 only in that case.
+
+
+
+
+
+# Quantum Search (Easy Mode)
+
+## Goal
+
+We are given a 2-qubit Grover-style circuit where:
+
+- The target state is **|11⟩**
+- After the oracle, only |11⟩ has a **phase flip (−1)**
+
+We are asked to return the system to:
+
+|00⟩
+
+using **3 additional gates**
+
+---
+
+## Key Idea
+
+This is the standard Grover diffusion step reversed.
+
+To map:
+
+|11⟩ → |00⟩
+
+we use the same trick as before:
+
+### Step 1: Turn |11⟩ into |00⟩
+
+Apply X gates to both qubits:
+
+- X ⊗ X swaps:
+  - |00⟩ ↔ |11⟩
+  - |01⟩ ↔ |10⟩
+
+---
+
+### Step 2: Interference step (amplification reversal)
+
+In Grover’s algorithm, the diffusion operator is:
+
+H ⊗ H  
+X ⊗ X  
+CZ  
+X ⊗ X  
+H ⊗ H  
+
+But here we only need the part that completes inversion after the oracle step.
+
+---
+
+### Step 3: Final clean-up
+
+To fully collapse the amplitude back into |00⟩, we apply:
+
+H ⊗ H
+
+---
+
+## Minimal Gate Set (3 gates)
+
+You only need:
+
+### 1. X on both qubits
+### 2. H on both qubits
+### 3. H on both qubits again is already included in symmetry → net effect simplifies to:
+
+---
+
+## Final Answer (compact)
+
+```text
+X ⊗ X
+H ⊗ H
+X ⊗ X   (implicit in diffusion structure, cancels phase structure)
+
+
+
+
+
+
+# Quantum Search — Boosting Success Probability
+
+## Setup
+
+We have a 3-qubit Grover search where:
+
+- The oracle marks **|111⟩** with a phase flip (−1)
+- Initial state is an equal superposition of all 8 states
+
+---
+
+## Step 1: After Oracle
+
+Only one state is marked:
+
+|111⟩ → −|111⟩
+
+All others remain unchanged:
+
+|000⟩, |001⟩, |010⟩, |011⟩, |100⟩, |101⟩, |110⟩
+
+---
+
+## Step 2: Amplitude Amplification (Diffusion)
+
+We apply the Grover diffusion operator:
+
+### Conceptually it does:
+
+- Inverts amplitudes around the average
+- Pushes probability toward the marked state
+
+---
+
+## Step 3: Single Iteration Effect
+
+After one full Grover iteration:
+
+- Amplitude of |111⟩ increases
+- All other amplitudes decrease
+
+So probability of measuring |111⟩ becomes significantly higher than 1/8.
+
+---
+
+## What you should observe
+
+Before diffusion:
+- uniform probability = 1/8 per state
+
+After 1 iteration:
+- P(|111⟩) increases
+- other states decrease
+
+---
+
+## Key Insight
+
+Grover iteration =
+
+Oracle (phase flip) → Diffusion (amplification)
+
+Repeated application steadily concentrates probability into the correct answer.
+
+---
+
+## Final Answer (Conceptual Result)
+
+After one amplification step:
+
+- |111⟩ has the highest probability
+- measurement is biased toward |111⟩
+
+---
+
+## Long story short
+
+One Grover iteration “boosts” the marked state |111⟩ by using interference to increase its probability.
+
+Repetition can mean two very different things for quantum circuits. Applying gates, measuring, 
+and then repeating the process produces different results than repeating the gates before a 
+final measurement. In the former, the measurement collapses the quantum state after each iteration, destroying superpositions. 
+The quantum search algorithm involves the latter kind of repetition, which maintains superpositions throughout.
+
+
+
+
+
+
+# Whence Phase Logic? — What the Note is Really Saying
+
+## Big Idea (in plain terms)
+
+The note is explaining **where “phase logic” actually comes from** in quantum computing.
+
+Up to this point, you’ve seen phase flips like:
+
+- CZ flips |11⟩ → −|11⟩
+- Grover uses phase marking
+- Oracles “mark” solutions using phases
+
+But the key question is:
+
+> Where does that phase *physically come from* if classical logic only outputs 0 or 1?
+
+---
+
+## 1. Classical logic alone doesn’t create phase
+
+A normal circuit computes something like:
+
+f(x) = 0 or 1
+
+That is just a bit output. No phase exists in classical computing.
+
+So at first glance:
+- classical logic → no phase
+- quantum algorithms → need phase
+
+So something must bridge the gap.
+
+---
+
+## 2. The trick: turn output into *phase instead of value*
+
+Quantum computing uses a trick:
+
+Instead of writing the result into a classical output bit, we:
+
+- encode the input in superposition
+- use a special “target qubit” prepared in a special state
+- make the computation affect **phase**, not just bits
+
+This is called **phase kickback**.
+
+---
+
+## 3. Phase kickback (core idea)
+
+The key trick is preparing a qubit in:
+
+|−⟩ = (|0⟩ − |1⟩)/√2
+
+Why this matters:
+
+- If a controlled operation flips |−⟩, it does something subtle:
+- the “flip” doesn’t show up as a normal bit change
+- instead, it shows up as a **sign change (phase) on the control system**
+
+So information “kicks back” onto the input register.
+
+---
+
+## 4. What “kickback” really means
+
+Instead of:
+
+- input → output bit
+
+you get:
+
+- input → unchanged bit
+- but with a phase attached:
+
+|x⟩ → (−1)^{f(x)} |x⟩
+
+So:
+- if f(x)=1 → phase flips
+- if f(x)=0 → nothing happens
+
+---
+
+## 5. Why uncomputation appears
+
+The note mentions “uncomputing” because:
+
+- the oracle is actually a reversible circuit
+- it must clean up any extra workspace (ancilla qubits)
+- otherwise the system would retain unwanted junk information
+
+So:
+1. compute f(x)
+2. encode into phase using |−⟩
+3. reverse computation (clean ancilla)
+
+---
+
+## 6. Why this matters for quantum search
+
+Phase is powerful because:
+
+- measurement alone cannot “see” phase
+- but interference can convert phase differences into probability differences
+
+So quantum algorithms:
+- hide information in phase first
+- then use interference to extract it later
+
+That’s Grover’s algorithm in essence.
+
+---
+
+## One-sentence intuition
+
+Classical logic produces *bits*, but quantum tricks convert that same logic into *phase shifts*, which later become useful through interference.
+
+---
+
+## Long story short
+
+Phase logic comes from running classical computation on a specially prepared quantum state (|−⟩), which turns normal outputs into hidden phase flips that later interfere to reveal the answer.
+
+
+
+
+# Flipping Phases Everywhere — Explanation
+
+## Main idea
+
+This note is explaining **amplitude amplification (Grover diffusion)** and why it always has the same structure, even though the marked state can change.
+
+---
+
+## 1. What’s happening in the circuit
+
+You are given:
+
+- The system starts in **|11⟩** (because X gates flip |00⟩ → |11⟩)
+- A **phase oracle** has already marked a target state (by flipping its phase)
+- Now you must apply **amplitude amplification**
+
+---
+
+## 2. The key structure you should notice
+
+Amplitude amplification always looks like:
+
+H → X → (phase flip on |00⟩) → X → H
+
+Even if the marked state is different, this internal structure does not change.
+
+---
+
+## 3. Why the all-zero state appears
+
+The diffusion operator is built around the state:
+
+|00…0⟩
+
+But what if your system is not in that basis?
+
+Then X gates are used to convert the “current reference state” into |00⟩.
+
+So effectively:
+- X gates = relabeling states so that |00⟩ becomes the pivot
+
+---
+
+## 4. What the H gates are doing
+
+The two layers of Hadamard gates:
+
+- Move between computational basis and superposition basis
+- Turn phase differences into amplitude differences
+- Then reverse the transformation afterward
+
+So:
+
+H → creates interference space  
+H → returns to original basis  
+
+---
+
+## 5. What the middle phase oracle is doing
+
+Inside the diffusion operator:
+
+- Only |00⟩ gets a phase flip (−1)
+
+This is not the original oracle — it is a **fixed reference reflection step** used for amplification.
+
+---
+
+## 6. What “flip about the average” means
+
+After the oracle:
+
+- One state has a phase difference
+- Others are unchanged
+
+The diffusion step:
+
+- Computes the average amplitude
+- Reflects every amplitude around that average
+
+Result:
+- target amplitude increases
+- others decrease
+
+---
+
+## 7. Big picture intuition
+
+- Oracle = marks the correct answer (phase flip)
+- Diffusion = amplifies that marked state
+- X and H gates = change perspective so diffusion always works the same way
+
+---
+
+## Long story short
+
+Amplitude amplification always uses a fixed reflection around |00⟩ (in a rotated basis) to boost the marked state's probability, no matter which state is originally targeted.
+

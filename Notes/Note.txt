@@ -7236,3 +7236,3154 @@ Result:
 
 Amplitude amplification always uses a fixed reflection around |00⟩ (in a rotated basis) to boost the marked state's probability, no matter which state is originally targeted.
 
+
+
+
+
+
+# Then there were two — Entanglement basics
+
+## Question
+What is the minimum number of computational states two qubits of information can occupy?
+
+---
+
+## Answer: **1 computational state**
+
+---
+
+## Why?
+
+Two qubits have **4 possible computational basis states**:
+
+- |00⟩  
+- |01⟩  
+- |10⟩  
+- |11⟩  
+
+But a quantum state does **not need to use all of them**.
+
+The most “minimal” valid state is when the system is in a **pure basis state**, such as:
+
+- |00⟩ (or any one of the four)
+
+In that case, the system occupies only **one computational state with probability 1**.
+
+---
+
+## Key idea
+
+Even though two qubits *can represent a combination of 4 states*, they can also be fully “collapsed” into just **one definite state**.
+
+---
+
+## Important intuition
+
+- Maximum complexity: 4 states (superposition over all)
+- Minimum complexity: 1 state (no superposition)
+
+Entanglement comes in later when the state cannot be split into individual qubits anymore—but even then, the system still spans multiple basis states in general.
+
+---
+
+## Long story short
+
+The minimum is **1 computational state**.
+
+
+
+
+
+# Superposition again — Entanglement intuition note
+
+## Core idea
+
+This section explains **entanglement as a “superposition of correlations”** rather than a single fixed relationship.
+
+---
+
+## Classical vs quantum correlation
+
+### Classical correlation
+- Example: socks or coins
+- Outcomes are linked in a simple way:
+  - left = right
+- But only **one rule at a time**
+
+---
+
+### Quantum correlation (entanglement)
+Entangled states behave like:
+
+- multiple correlation rules exist **simultaneously**
+- only one outcome is observed when measured
+
+So instead of:
+> “always same”
+
+or:
+> “always opposite”
+
+quantum systems can encode:
+> a superposition of correlation structures
+
+---
+
+## The example state
+
+\[
+|HH\rangle + |TT\rangle
+\]
+
+This means:
+- both particles are linked
+- but not in a single deterministic classical way
+
+---
+
+## What measurement does
+
+When measured:
+- the superposition collapses
+- only **one classical outcome remains**
+
+So you will always see:
+- HH OR TT
+
+but never mixed outcomes like:
+- HT or TH
+
+---
+
+## Key insight
+
+Entanglement does not mean:
+- both outcomes happen at once in reality
+
+It means:
+- the system encodes correlations that only become classical after measurement
+
+---
+
+## Long story short
+
+Entanglement is a quantum superposition of correlated outcomes, and measurement collapses it into a single consistent classical result.
+
+# Two become one — Entanglement note
+
+## Main idea
+
+This section explains the biggest difference between:
+
+- classical correlations
+- quantum entanglement
+
+---
+
+## 1. Classical correlation example (socks)
+
+If two socks always match:
+- once you see one sock
+- you instantly know the other
+
+But importantly:
+
+> the colors were already fixed beforehand
+
+You just didn’t know them yet.
+
+This is called:
+- hidden classical information
+
+---
+
+## 2. Quantum entanglement is different
+
+For entangled qubits:
+
+\[
+|HH\rangle + |TT\rangle
+\]
+
+before measurement:
+- the system is NOT secretly “already HH”
+- and NOT secretly “already TT”
+
+Instead:
+- the pair truly exists in a quantum superposition
+
+---
+
+## 3. Measurement creates the outcome
+
+When one qubit is measured:
+- the whole state collapses
+- both outcomes become determined together
+
+So:
+- measuring one instantly determines the other
+- but the value was not fixed beforehand
+
+This is the strange part of quantum mechanics.
+
+---
+
+## 4. Why “two become one”
+
+In an entangled state:
+
+- qubit A does not have its own independent state
+- qubit B does not either
+
+Only the ENTIRE PAIR has a well-defined state.
+
+So instead of:
+- two separate objects
+
+you must think of:
+- one combined quantum system
+
+---
+
+## 5. Important consequence
+
+You cannot fully describe one entangled qubit by itself.
+
+Only the combined state makes sense.
+
+That is why:
+- entangled systems cannot be broken into independent pieces
+
+---
+
+## 6. Not all two-qubit states are entangled
+
+Examples like:
+
+\[
+|00\rangle
+\]
+
+are NOT entangled because:
+- each qubit still has its own definite value
+
+Entanglement only happens when the total state cannot be separated into individual qubit states.
+
+---
+
+## Long story short
+
+Entangled qubits lose their separate identities and behave as one combined quantum object whose outcomes are only determined during measurement.
+
+
+
+
+# Doubling up — Entanglement and exponential growth
+
+## Main idea
+
+This section explains:
+
+> Why entanglement causes quantum information to grow exponentially.
+
+And that exponential growth is the reason quantum computers can outperform classical computers.
+
+---
+
+## 1. The contradiction argument
+
+The lesson says:
+
+Suppose qubits were NOT entangled.
+
+Then:
+- each qubit could be described independently
+- like separate tiny systems
+
+That means:
+- total information would grow linearly
+
+Example:
+- 1 qubit → small amount of info
+- 10 qubits → 10× that amount
+
+A classical computer could easily simulate this.
+
+---
+
+## 2. But quantum computers are supposed to be powerful
+
+Quantum computers are expected to solve some problems faster than classical computers.
+
+If unentangled qubits were enough:
+- classical computers could already simulate everything efficiently
+
+That would destroy the idea of quantum advantage.
+
+So:
+
+> entanglement must be necessary for quantum speed-up
+
+---
+
+## 3. Where exponential growth appears
+
+For:
+
+\[
+n \text{ qubits}
+\]
+
+the quantum state needs:
+
+\[
+2^n
+\]
+
+complex amplitudes.
+
+Examples:
+
+- 1 qubit → 2 amplitudes
+- 2 qubits → 4 amplitudes
+- 3 qubits → 8 amplitudes
+- 30 qubits → over 1 billion amplitudes
+
+This doubling happens because entangled systems cannot be broken into separate smaller descriptions.
+
+---
+
+## 4. Why this becomes impossible classically
+
+If each amplitude uses memory:
+
+- memory requirement grows exponentially
+- not linearly
+
+So even a “small” quantum computer rapidly becomes impossible to fully store on a normal computer.
+
+---
+
+## 5. The 30-qubit example
+
+30 qubits need:
+
+\[
+2^{30}
+\]
+
+amplitudes.
+
+That is:
+
+\[
+1,073,741,824
+\]
+
+amplitudes.
+
+If each amplitude uses 8 bytes:
+
+\[
+8 \times 2^{30}
+\]
+
+bytes are needed.
+
+That is roughly:
+
+\[
+8 \text{ GB}
+\]
+
+just to store the state.
+
+---
+
+## Key intuition
+
+Entanglement ties qubits together into one giant quantum object.
+
+That forces us to track ALL possible combinations simultaneously.
+
+That is where the exponential explosion comes from.
+
+---
+
+## Long story short
+
+Entanglement causes quantum states to grow exponentially with the number of qubits, which is both the source of quantum power and the reason classical simulation becomes hard.
+
+
+
+
+# Quantum calling — Entanglement in communication
+
+## Main idea
+
+This note explains why entanglement is important not only for computation, but also for **secure communication**.
+
+The key concept is:
+
+> entanglement creates extremely special correlations that cannot be secretly shared with outsiders.
+
+---
+
+## 1. Classical communication problem
+
+Suppose you send:
+- banking information
+- passwords
+- private messages
+
+The danger is:
+- an eavesdropper might copy the message
+
+If that happens:
+- the attacker becomes correlated with your data
+
+And you may never notice.
+
+Classical information can usually be copied silently.
+
+---
+
+## 2. Quantum communication is different
+
+With entanglement:
+
+- two users share entangled qubits
+- the qubits are deeply correlated
+- but ONLY with each other
+
+This property is called:
+
+# Monogamy of entanglement
+
+---
+
+## 3. What “monogamy” means
+
+Entangled qubits behave like an exclusive relationship.
+
+If:
+- Alice and Bob are maximally entangled
+
+then:
+- no third system can also fully share that entanglement
+
+So:
+- Eve (an eavesdropper) cannot secretly “join” the correlation
+
+If she tries:
+- the entanglement is disturbed
+- Alice and Bob can detect it
+
+---
+
+## 4. Why this helps security
+
+In quantum communication:
+
+- measuring quantum information changes it
+- copying unknown quantum states is impossible
+- eavesdropping leaves detectable traces
+
+So quantum communication can reveal interception attempts automatically.
+
+---
+
+# Real-life example — Quantum Key Distribution (QKD)
+
+One of the most famous applications is:
+
+## BB84 / entanglement-based secure communication
+
+Imagine:
+
+- Alice wants to send a secret key to Bob
+- they share entangled photons
+
+If Eve tries to intercept:
+- she must measure the photons
+- measurement disturbs the quantum correlations
+
+Alice and Bob compare a small sample of results.
+
+If correlations are broken:
+- they know someone listened in
+
+So unlike classical encryption:
+- the security comes from physics itself
+
+not from:
+- mathematical difficulty
+
+---
+
+## 5. Future quantum internet
+
+The note mentions:
+
+> distributing entanglement will be the backbone of a future quantum internet
+
+This means future networks may:
+- share entangled particles between cities
+- enable ultra-secure communication
+- support quantum teleportation protocols
+- connect quantum computers together
+
+---
+
+## Key intuition
+
+Classical security says:
+> “it’s hard to crack”
+
+Quantum security says:
+> “physics won’t allow undetected spying”
+
+That is a completely different level of protection.
+
+---
+
+## Long story short
+
+Entanglement enables ultra-secure communication because entangled qubits can only strongly correlate with each other, so eavesdropping disturbs the system and becomes detectable.
+
+
+
+
+
+# A light touch — Fragility of entanglement
+
+## Main idea
+
+This section explains:
+
+> Entanglement is extremely fragile.
+
+Even more fragile than ordinary superposition.
+
+---
+
+## 1. Why superposition is fragile
+
+A qubit in superposition:
+
+\[
+|0\rangle + |1\rangle
+\]
+
+must stay isolated from:
+- noise
+- heat
+- measurements
+- the environment
+
+If outside information leaks in:
+- the superposition collapses
+
+This process is called:
+# decoherence
+
+---
+
+## 2. Why entanglement is EVEN MORE fragile
+
+Entanglement involves:
+- multiple qubits sharing ONE combined quantum state
+
+Example:
+
+\[
+|00\rangle + |11\rangle
+\]
+
+Now BOTH qubits must remain protected simultaneously.
+
+If:
+- even ONE qubit is disturbed
+
+then:
+- the entire entangled state can collapse
+
+---
+
+## 3. Measurement destroys entanglement
+
+A measurement extracts information from the system.
+
+Suppose:
+- Alice and Bob share entangled qubits
+
+If Eve measures one qubit:
+- the superposition collapses
+- entanglement breaks immediately
+
+This is why:
+- eavesdropping becomes detectable in quantum communication
+
+---
+
+## 4. More qubits = more danger
+
+As entangled systems grow:
+
+- more qubits must stay perfectly isolated
+- more interactions can introduce errors
+- more chances exist for decoherence
+
+That is one reason building large quantum computers is so difficult.
+
+---
+
+## 5. Creating entanglement is also hard
+
+To entangle qubits:
+- the particles must interact very carefully
+- timing and control must be precise
+- unwanted noise must be minimized
+
+Physically, this is an enormous engineering challenge.
+
+---
+
+## Real-life intuition
+
+Think of entanglement like:
+- balancing many spinning plates simultaneously
+
+One small disturbance:
+- and the whole coordinated motion breaks
+
+Single-qubit superposition is like:
+- balancing one plate
+
+Entanglement is like:
+- balancing many interconnected plates at once
+
+---
+
+## Why companies like Q-CTRL matter
+
+Quantum hardware naturally suffers from:
+- noise
+- vibrations
+- electromagnetic interference
+- decoherence
+
+Companies like :contentReference[oaicite:0]{index=0} build:
+- error suppression techniques
+- stabilization tools
+- quantum control methods
+
+to help maintain delicate entangled states long enough to perform useful computations.
+
+---
+
+## Key intuition
+
+Entanglement is powerful precisely because many qubits act as one object.
+
+But that also means:
+- damaging one piece can damage the whole system.
+
+---
+
+## Long story short
+
+Entanglement is extremely fragile because disturbing even one qubit can collapse the shared quantum state, making large-scale quantum systems very hard to build and protect.
+
+
+
+
+
+# Spooky action — Understanding quantum entanglement
+
+## Main idea
+
+This section explains why entanglement feels so strange compared to normal everyday correlations.
+
+Einstein famously called it:
+
+# “Spooky action at a distance”
+
+because quantum correlations seem to behave in a way that classical physics cannot explain.
+
+---
+
+## 1. Classical correlations always have a cause
+
+In everyday life:
+
+if two things are correlated,
+there is usually a reason.
+
+Example:
+- two coins always land the same way
+
+You would assume:
+- someone manipulated them
+- they are physically connected
+- or both were affected by the same hidden cause
+
+Classical thinking always expects:
+# a causal explanation
+
+---
+
+## 2. Quantum entanglement breaks this intuition
+
+Entangled particles also show strong correlations.
+
+Example:
+
+\[
+|00\rangle + |11\rangle
+\]
+
+If one qubit is measured as:
+- 0 → the other becomes 0
+- 1 → the other becomes 1
+
+Even if they are far apart.
+
+---
+
+## 3. The weird part
+
+In classical physics we would say:
+
+> “the answers were secretly predetermined.”
+
+But experiments show this explanation does NOT work.
+
+Quantum mechanics says:
+- the outcomes are not fixed beforehand
+- the correlations appear only during measurement
+
+This is what shocked Einstein.
+
+---
+
+## 4. No hidden classical explanation
+
+The lesson says:
+
+> quantum correlations can be proven to have no causal relationship
+
+This means:
+- no local hidden variable can fully explain the correlations
+
+This result comes from:
+# Bell’s Theorem
+
+and experiments called:
+# Bell tests
+
+These experiments repeatedly confirmed:
+- quantum entanglement is genuinely different from classical correlation
+
+---
+
+## 5. Does this allow faster-than-light communication?
+
+No.
+
+Entanglement creates correlations,
+but you cannot use it to instantly send messages.
+
+Why?
+- each individual measurement still looks random
+- only after comparing results do the correlations appear
+
+So relativity is still safe.
+
+---
+
+## 6. “Information flowing both ways”
+
+The note connects this idea to controlled gates.
+
+Earlier, you saw:
+- phases can “kick back”
+- controls and targets influence each other strangely
+
+Quantum information does not always behave like:
+- one-way classical cause-and-effect
+
+Instead:
+- the entire quantum system evolves together
+
+---
+
+## 7. Why this matters for technology
+
+Even though entanglement feels mysterious,
+it is incredibly useful.
+
+It enables:
+- quantum computing
+- quantum cryptography
+- quantum teleportation
+- quantum networking
+
+Modern quantum engineering uses these strange effects as practical tools.
+
+---
+
+## Real-life analogy (imperfect but intuitive)
+
+Imagine two magical dice:
+- rolled on opposite sides of Earth
+- yet always showing correlated results
+
+But:
+- the values were not secretly prewritten
+- and no signal traveled between them during the roll
+
+That is the kind of behavior quantum mechanics predicts.
+
+---
+
+## Key intuition
+
+Classical correlations come from hidden causes.
+
+Quantum entanglement creates correlations that cannot be explained by any ordinary hidden classical story.
+
+That is why it feels “spooky.”
+
+---
+
+## Long story short
+
+Entanglement produces correlations stronger than classical physics can explain, which is why Einstein called it “spooky action at a distance,” yet these strange correlations are now central to quantum technology.
+
+
+
+
+# Ket back to business — Understanding ket notation
+
+## Main idea
+
+This section explains:
+
+# how multi-qubit quantum states are written using ket notation
+
+and how combined quantum states are shorthand versions of smaller single-qubit states.
+
+---
+
+# 1. What is a ket?
+
+A quantum state is written as:
+
+\[
+| \text{label} \rangle
+\]
+
+called a:
+# ket
+
+Examples for one qubit:
+
+\[
+|0\rangle
+\]
+
+and
+
+\[
+|1\rangle
+\]
+
+These are the computational basis states.
+
+---
+
+# 2. Superposition of one qubit
+
+A qubit can exist in a combination of both states:
+
+\[
+a|0\rangle + b|1\rangle
+\]
+
+where:
+- \(a\) and \(b\) are amplitudes
+- measurement probabilities come from these amplitudes
+
+---
+
+# 3. Two qubits
+
+With two qubits, the possible computational states become:
+
+\[
+|00\rangle,\ |01\rangle,\ |10\rangle,\ |11\rangle
+\]
+
+Notice:
+- each added qubit adds another bit to the label
+- number of states doubles
+
+---
+
+# 4. Important shorthand idea
+
+The lesson says:
+
+\[
+|00\rangle = |0\rangle |0\rangle
+\]
+
+This means:
+- the compact ket is really a combined state of two individual qubits
+
+Similarly:
+
+\[
+|10\rangle = |1\rangle |0\rangle
+\]
+
+---
+
+# 5. Think of it like multiplication
+
+The lesson compares this to multiplication in algebra.
+
+Example:
+
+\[
+|0\rangle |1\rangle
+\]
+
+is combined into:
+
+\[
+|01\rangle
+\]
+
+You simply:
+- place the labels together
+
+---
+
+# 6. Order matters
+
+VERY important:
+
+\[
+|01\rangle \neq |10\rangle
+\]
+
+because:
+- left label = first qubit
+- right label = second qubit
+
+So:
+
+\[
+|01\rangle
+\]
+
+means:
+- first qubit = 0
+- second qubit = 1
+
+while:
+
+\[
+|10\rangle
+\]
+
+means:
+- first qubit = 1
+- second qubit = 0
+
+---
+
+# 7. Amplitudes multiply too
+
+If two qubits have amplitudes:
+
+\[
+(a|0\rangle + b|1\rangle)
+\]
+
+and
+
+\[
+(c|0\rangle + d|1\rangle)
+\]
+
+their combined state expands like algebra multiplication:
+
+\[
+ac|00\rangle + ad|01\rangle + bc|10\rangle + bd|11\rangle
+\]
+
+This is one of the most important ideas in quantum mechanics.
+
+---
+
+# 8. Why this matters
+
+Ket notation lets us:
+- describe many qubits compactly
+- express superposition
+- represent entanglement
+- build quantum circuits mathematically
+
+Without this shorthand,
+multi-qubit systems would become unreadable very quickly.
+
+---
+
+## Key intuition
+
+Multi-qubit kets are just combined labels representing the joint state of several qubits, and the ordering of labels tells you which qubit is which.
+
+---
+
+## Long story short
+
+Ket notation compresses multiple qubit states into one compact expression like \(|01\rangle\), where the order of bits identifies the state of each qubit.
+
+
+# Add it up — Notes
+
+## Classical Correlation
+
+Two classical bits can be:
+
+1. Correlated
+   - Always the same
+   - Possible outcomes:
+     - `00`
+     - `11`
+
+2. Anti-correlated
+   - Always opposite
+   - Possible outcomes:
+     - `01`
+     - `10`
+
+Important idea:
+- You may not know the value of each bit individually,
+- but you know their relationship.
+
+Example:
+- If one bit is `0`, the other must also be `0`.
+- If one bit is `1`, the other must also be `1`.
+
+---
+
+# Quantum Version
+
+The famous entangled state:
+
+\[
+\frac{1}{\sqrt{2}}|00\rangle + \frac{1}{\sqrt{2}}|11\rangle
+\]
+
+This means the system is in a superposition of:
+
+- `|00⟩`
+- `|11⟩`
+
+at the same time.
+
+Each state has equal probability amplitude.
+
+---
+
+# What Happens During Measurement?
+
+Before measurement:
+- Neither qubit has a definite value.
+- The pair acts like one combined quantum system.
+
+After measurement:
+- The state collapses to:
+  - `|00⟩`
+  OR
+  - `|11⟩`
+
+Each happens with 50% probability.
+
+---
+
+# The Important Part
+
+Even though the result is random:
+
+- If the first qubit is measured as `0`,
+  the second is instantly `0`.
+
+- If the first qubit is measured as `1`,
+  the second is instantly `1`.
+
+So the outcomes are perfectly correlated.
+
+---
+
+# Why This Is Different From Classical Bits
+
+Classically:
+- The values were secretly fixed beforehand.
+
+Quantum mechanically:
+- The values do NOT exist definitively before measurement.
+- The correlation itself exists in superposition.
+
+That is the essence of entanglement.
+
+---
+
+# Key Intuition
+
+Single qubit superposition:
+- One qubit is in multiple states at once.
+
+Entanglement:
+- Multiple qubits share one combined quantum state.
+
+You cannot fully describe one qubit independently anymore.
+
+---
+
+# Long story short
+
+Entanglement means qubits share a quantum relationship where measurement outcomes are strongly connected, even though the actual values were not fixed before measurement.
+
+
+
+
+# Deception! — Notes
+
+## Main Idea
+
+Just because a quantum state is a **superposition** does NOT automatically mean it is **entangled**.
+
+Some multi-qubit superposition states are actually just separate single-qubit states combined together.
+
+So:
+
+- Superposition ≠ Entanglement
+- Entanglement requires a special kind of correlation
+
+---
+
+# The Example
+
+The lesson gives:
+
+\[
+\frac{1}{\sqrt{2}}|01\rangle + \frac{1}{\sqrt{2}}|11\rangle
+\]
+
+At first glance, this looks entangled because:
+
+- it has 2 qubits
+- it is a superposition
+- it contains multiple computational states
+
+But appearances can deceive.
+
+---
+
+# Looking Carefully
+
+Notice the second qubit:
+
+- in \(|01\rangle\) → second qubit is `1`
+- in \(|11\rangle\) → second qubit is still `1`
+
+So the second qubit never changes.
+
+Only the first qubit changes between `0` and `1`.
+
+That means:
+
+- first qubit is uncertain
+- second qubit is definitely `1`
+
+The qubits are NOT correlated together.
+
+---
+
+# Factoring the State
+
+We can rewrite it as:
+
+\[
+\left(
+\frac{1}{\sqrt{2}}|0\rangle +
+\frac{1}{\sqrt{2}}|1\rangle
+\right)
+|1\rangle
+\]
+
+The first part is:
+
+\[
+|+\rangle
+\]
+
+So the whole state becomes:
+
+\[
+|+\rangle|1\rangle
+\]
+
+or:
+
+\[
+|+\rangle \otimes |1\rangle
+\]
+
+This means:
+
+- qubit 1 has its own state
+- qubit 2 has its own state
+- they are independent
+
+Therefore:
+
+## NOT entangled
+
+---
+
+# Key Test for Entanglement
+
+If a multi-qubit state can be separated into:
+
+\[
+(\text{state of qubit A})(\text{state of qubit B})
+\]
+
+then it is NOT entangled.
+
+If it cannot be separated like that, then it IS entangled.
+
+---
+
+# Compare With a Truly Entangled State
+
+Entangled:
+
+\[
+\frac{1}{\sqrt{2}}|00\rangle +
+\frac{1}{\sqrt{2}}|11\rangle
+\]
+
+Why?
+
+Because:
+
+- if first qubit is `0`, second is also `0`
+- if first qubit is `1`, second is also `1`
+
+Their outcomes are linked.
+
+You cannot split this into two independent single-qubit states.
+
+---
+
+# Easy Analogy
+
+Imagine two dancers.
+
+## Non-entangled state
+
+One dancer improvises randomly while the other stands still.
+
+They are independent.
+
+That is like:
+
+\[
+|+\rangle|1\rangle
+\]
+
+---
+
+## Entangled state
+
+Both dancers always move together in perfect synchronization.
+
+You cannot describe one without the other.
+
+That is entanglement.
+
+---
+
+# Long story short
+
+A quantum state can look complicated and still NOT be entangled.
+
+The real question is:
+
+> Can the state be separated into independent qubit states?
+
+- Yes → not entangled
+- No → entangled
+
+Superposition alone is not enough.
+
+
+
+
+# Break it down — Notes
+
+## Measurement Collapses Quantum States
+
+For a single qubit:
+
+Before measurement:
+
+\[
+\alpha|0\rangle + \beta|1\rangle
+\]
+
+After measurement:
+
+- outcome `0` → state becomes:
+
+\[
+|0\rangle
+\]
+
+- outcome `1` → state becomes:
+
+\[
+|1\rangle
+\]
+
+The superposition disappears.
+
+This is called **collapse**.
+
+---
+
+# Multi-Qubit Measurement
+
+Same rule applies for multiple qubits.
+
+Example:
+
+Before measurement:
+
+\[
+\frac{1}{\sqrt{2}}|00\rangle +
+\frac{1}{\sqrt{2}}|11\rangle
+\]
+
+Possible outcomes:
+
+- `00`
+- `11`
+
+After measurement:
+
+- if outcome is `00`:
+
+\[
+|00\rangle
+\]
+
+- if outcome is `11`:
+
+\[
+|11\rangle
+\]
+
+The state collapses into ONE computational state.
+
+---
+
+# Important Idea
+
+A single ket like:
+
+\[
+|00\rangle
+\]
+
+is NOT entangled.
+
+Why?
+
+Because there is no superposition anymore.
+
+Entanglement requires superposition of correlations.
+
+Measurement destroys that superposition.
+
+So:
+
+## Measurement breaks entanglement
+
+---
+
+# Partial Measurement (Only One Qubit)
+
+This is the really interesting part.
+
+Suppose we have:
+
+\[
+\frac{1}{\sqrt{2}}|00\rangle +
+\frac{1}{\sqrt{2}}|11\rangle
+\]
+
+This is entangled.
+
+Now measure ONLY the first qubit.
+
+---
+
+## Case 1: First qubit measured as `0`
+
+The whole state immediately becomes:
+
+\[
+|00\rangle
+\]
+
+Now the second qubit is definitely `0`.
+
+---
+
+## Case 2: First qubit measured as `1`
+
+The whole state becomes:
+
+\[
+|11\rangle
+\]
+
+Now the second qubit is definitely `1`.
+
+---
+
+# Why This Is Amazing
+
+Measuring one qubit instantly determines the state of the other.
+
+Before measurement:
+
+- neither qubit had a definite value
+
+After measurement:
+
+- both become definite
+
+This is one signature of entanglement.
+
+---
+
+# Connection to Noise
+
+The note says:
+
+> noise is analogous to unwanted measurement
+
+This is VERY important in quantum computing.
+
+---
+
+# Why Noise Is Dangerous
+
+The environment constantly interacts with qubits:
+
+- heat
+- vibrations
+- electromagnetic fields
+- stray particles
+
+These interactions leak information about the qubit.
+
+That acts like a tiny accidental measurement.
+
+Even if nobody intentionally measures the qubit,
+the environment effectively does.
+
+---
+
+# Result
+
+The entangled state collapses.
+
+Entanglement is destroyed.
+
+This process is called:
+
+## Decoherence
+
+---
+
+# Easy Analogy
+
+Imagine two perfectly synchronized dancers.
+
+Entanglement keeps them coordinated.
+
+Measurement is like suddenly freezing one dancer in place.
+
+The synchronized motion disappears immediately.
+
+Noise is like random people constantly bumping into the dancers.
+
+Eventually the coordination breaks.
+
+---
+
+# Key Takeaways
+
+## 1. Measurement collapses superposition
+
+Quantum possibilities reduce to one definite outcome.
+
+---
+
+## 2. Measurement destroys entanglement
+
+After collapse, the system becomes classical.
+
+---
+
+## 3. Measuring one entangled qubit affects the whole system
+
+Because entangled qubits share one combined quantum state.
+
+---
+
+## 4. Noise behaves like accidental measurement
+
+That is why protecting qubits is extremely hard.
+
+---
+
+# Long story short
+
+Entanglement survives only while the quantum system remains isolated.
+
+Measurement — even accidental environmental interaction — collapses the shared quantum state and destroys the entanglement.
+
+That is why quantum computers require extremely careful control.
+
+# Entanglement Defined — Notes
+
+## Formal Definition
+
+A two-qubit state is called:
+
+# Separable
+
+if it can be written as:
+
+\[
+|\psi_{12}\rangle = |\psi_1\rangle |\psi_2\rangle
+\]
+
+Meaning:
+
+- qubit 1 has its own state
+- qubit 2 has its own state
+- the total system is just the combination of both
+
+The qubits are independent.
+
+---
+
+# Entangled State
+
+A state is entangled if:
+
+## it CANNOT be separated into individual qubit states.
+
+Meaning:
+
+- there is only ONE combined state
+- the qubits must be described together
+- information exists in the correlation itself
+
+---
+
+# Example of a Separable State
+
+Consider:
+
+\[
+\frac{1}{\sqrt{2}}|00\rangle +
+\frac{1}{\sqrt{2}}|01\rangle
+\]
+
+At first glance this looks entangled because:
+
+- it is a superposition
+- it contains multiple two-qubit states
+
+BUT...
+
+We can factor it.
+
+---
+
+# Step-by-Step Factoring
+
+Take out the common first qubit:
+
+\[
+=
+|0\rangle
+\left(
+\frac{1}{\sqrt{2}}|0\rangle +
+\frac{1}{\sqrt{2}}|1\rangle
+\right)
+\]
+
+The term in parentheses is:
+
+\[
+|+\rangle
+\]
+
+So:
+
+\[
+=
+|0\rangle |+\rangle
+\]
+
+Now each qubit has its own independent state.
+
+Therefore:
+
+# NOT entangled
+
+---
+
+# Key Insight
+
+## Superposition alone does NOT mean entanglement.
+
+This is one of the biggest beginner traps.
+
+You can have:
+
+- multi-qubit states
+- superposition
+- multiple amplitudes
+
+and STILL have no entanglement.
+
+---
+
+# Real Entangled Example
+
+Consider:
+
+\[
+\frac{1}{\sqrt{2}}|00\rangle +
+\frac{1}{\sqrt{2}}|11\rangle
+\]
+
+Try factoring it.
+
+You cannot.
+
+There is no way to write it as:
+
+\[
+|\psi_1\rangle |\psi_2\rangle
+\]
+
+So this state IS entangled.
+
+---
+
+# Why Entanglement Is Hard to Prove
+
+To prove a state is separable:
+
+- you only need ONE successful factorization
+
+To prove a state is entangled:
+
+- you must show NO factorization exists
+
+That is much harder.
+
+---
+
+# Easy Analogy
+
+Think of separable states like two independent musicians:
+
+- each can play their own music separately
+
+Entangled states are like a duet where:
+
+- neither musician’s part makes sense alone
+- the music only exists together
+
+---
+
+# Important Idea
+
+Entanglement is fundamentally about:
+
+## non-factorizability
+
+If the quantum state can be broken into smaller independent pieces:
+
+→ separable
+
+If it cannot:
+
+→ entangled
+
+---
+
+# Key Takeaways
+
+## 1. Separable states can be factored
+
+\[
+|\psi_{12}\rangle = |\psi_1\rangle |\psi_2\rangle
+\]
+
+---
+
+## 2. Entangled states cannot be factored
+
+They require one combined description.
+
+---
+
+## 3. Superposition ≠ entanglement
+
+Some superpositions are completely separable.
+
+---
+
+## 4. Entanglement stores information in correlations
+
+Not in individual qubits.
+
+---
+
+# Long story short
+
+A quantum state is entangled when the qubits cannot be described independently.
+
+If a multi-qubit state can be factored into separate single-qubit states, it is separable and not entangled.
+
+
+
+# Bell States — Notes
+
+## What Are Bell States?
+
+Bell states are the most famous examples of entangled two-qubit states.
+
+They are called:
+
+# Maximally Entangled States
+
+because the two qubits are as strongly correlated as quantum mechanics allows.
+
+They are named after physicist:
+
+## John S. Bell
+
+who helped explain the strange nature of entanglement.
+
+---
+
+# The Four Bell States
+
+## 1. Correlated Bell State
+
+\[
+\frac{1}{\sqrt{2}}|00\rangle +
+\frac{1}{\sqrt{2}}|11\rangle
+\]
+
+Possible measurements:
+
+- `00`
+- `11`
+
+Both qubits always match.
+
+---
+
+## 2. Correlated Bell State (with phase difference)
+
+\[
+\frac{1}{\sqrt{2}}|00\rangle -
+\frac{1}{\sqrt{2}}|11\rangle
+\]
+
+Looks similar to the first one, but:
+
+- the second term has a negative phase
+
+Measurement outcomes are still:
+
+- `00`
+- `11`
+
+But the internal quantum interference behavior changes.
+
+---
+
+## 3. Anti-Correlated Bell State
+
+\[
+\frac{1}{\sqrt{2}}|01\rangle +
+\frac{1}{\sqrt{2}}|10\rangle
+\]
+
+Possible measurements:
+
+- `01`
+- `10`
+
+The qubits are always opposite.
+
+---
+
+## 4. Anti-Correlated Bell State (with phase difference)
+
+\[
+\frac{1}{\sqrt{2}}|01\rangle -
+\frac{1}{\sqrt{2}}|10\rangle
+\]
+
+Again:
+
+- opposite outcomes
+- but different quantum phase structure
+
+---
+
+# Why These States Are Entangled
+
+Try factoring one:
+
+\[
+\frac{1}{\sqrt{2}}|00\rangle +
+\frac{1}{\sqrt{2}}|11\rangle
+\]
+
+You cannot rewrite it as:
+
+\[
+|\psi_1\rangle |\psi_2\rangle
+\]
+
+So the state is NOT separable.
+
+Therefore:
+
+# It is entangled
+
+Same idea applies to all four Bell states.
+
+---
+
+# Important Idea: Correlation vs Anti-Correlation
+
+Two Bell states are:
+
+## Correlated
+
+- both qubits same
+- `00` or `11`
+
+Two Bell states are:
+
+## Anti-correlated
+
+- qubits opposite
+- `01` or `10`
+
+But all four contain the SAME amount of entanglement.
+
+---
+
+# The Role of Phase
+
+Notice the only difference between some Bell states is:
+
+\[
++\quad \text{vs} \quad -
+\]
+
+This phase difference does NOT change measurement probabilities directly.
+
+But it changes:
+
+- interference
+- quantum behavior
+- future gate operations
+
+Phase is invisible in direct measurement,
+but extremely important in computation.
+
+---
+
+# Single-Qubit Gates and Bell States
+
+The note says:
+
+> single-qubit gates do not change the strength of entanglement
+
+This is VERY important.
+
+You can transform one Bell state into another using ordinary single-qubit gates.
+
+Example:
+
+Applying an X gate to one qubit can convert:
+
+\[
+\frac{1}{\sqrt{2}}|00\rangle +
+\frac{1}{\sqrt{2}}|11\rangle
+\]
+
+into:
+
+\[
+\frac{1}{\sqrt{2}}|01\rangle +
+\frac{1}{\sqrt{2}}|10\rangle
+\]
+
+The form changes.
+
+But the amount of entanglement stays the same.
+
+---
+
+# Easy Analogy
+
+Think of Bell states like four different dance routines.
+
+Some dancers move:
+
+- together
+- opposite
+- with different timing
+
+But the strength of their coordination remains identical.
+
+---
+
+# Why Bell States Matter
+
+Bell states are the foundation of:
+
+- quantum teleportation
+- quantum cryptography
+- quantum networking
+- superdense coding
+- entanglement experiments
+
+They are the “hello world” of entanglement.
+
+---
+
+# Key Takeaways
+
+## 1. Bell states are maximally entangled two-qubit states
+
+---
+
+## 2. There are four Bell states
+
+Two correlated and two anti-correlated.
+
+---
+
+## 3. Relative phase matters
+
+Even if measurement outcomes look similar.
+
+---
+
+## 4. Single-qubit gates can transform Bell states
+
+But cannot destroy their entanglement strength.
+
+---
+
+# Long story short
+
+Bell states are the fundamental building blocks of entanglement.
+
+They represent the strongest possible quantum correlations between two qubits and are central to many quantum technologies.
+
+
+
+
+# Quantum Cats — Notes
+
+## From Bell States to GHZ States
+
+Previously we saw Bell states like:
+
+\[
+\frac{1}{\sqrt{2}}|00\rangle +
+\frac{1}{\sqrt{2}}|11\rangle
+\]
+
+This involved:
+
+- 2 qubits
+- perfect quantum correlation
+
+Now we extend the idea to 3 qubits.
+
+---
+
+# The GHZ State
+
+The state:
+
+\[
+\frac{1}{\sqrt{2}}|000\rangle +
+\frac{1}{\sqrt{2}}|111\rangle
+\]
+
+is called the:
+
+# GHZ State
+
+named after:
+
+- Greenberger
+- Horne
+- Zeilinger
+
+---
+
+# What Does This Mean?
+
+The system exists in a superposition of:
+
+- all qubits being `0`
+- all qubits being `1`
+
+Before measurement:
+
+- the qubits are not individually defined
+- only the whole system is defined
+
+After measurement you get ONLY:
+
+- `000`
+or
+- `111`
+
+Never:
+
+- `001`
+- `101`
+- `010`
+etc.
+
+---
+
+# Why It Is Entangled
+
+The note says:
+
+\[
+|\psi_1\rangle |\psi_2\rangle |\psi_3\rangle
+\]
+
+cannot reproduce the GHZ state.
+
+Meaning:
+
+you cannot separate the system into:
+
+- qubit 1 state
+- qubit 2 state
+- qubit 3 state
+
+The entire 3-qubit system behaves as ONE object.
+
+Therefore:
+
+# the GHZ state is entangled
+
+---
+
+# Important Difference From Bell States
+
+A GHZ state is NOT just:
+
+> “a bigger Bell state”
+
+This is very important.
+
+The entanglement structure is different.
+
+---
+
+# Strange Property
+
+If you look at only TWO qubits from a GHZ state:
+
+they do NOT form a Bell pair.
+
+Meaning:
+
+the entanglement exists globally across ALL qubits together.
+
+This is called:
+
+# multipartite entanglement
+
+(entanglement involving many particles)
+
+---
+
+# General Cat State
+
+You can continue the pattern:
+
+\[
+\frac{1}{\sqrt{2}}|00...0\rangle +
+\frac{1}{\sqrt{2}}|11...1\rangle
+\]
+
+Examples:
+
+## 4-qubit cat state
+
+\[
+\frac{1}{\sqrt{2}}|0000\rangle +
+\frac{1}{\sqrt{2}}|1111\rangle
+\]
+
+## 10-qubit cat state
+
+\[
+\frac{1}{\sqrt{2}}|0000000000\rangle +
+\frac{1}{\sqrt{2}}|1111111111\rangle
+\]
+
+---
+
+# Why Is It Called a “Cat State”?
+
+This comes from:
+
+## Schrödinger’s Cat
+
+A famous thought experiment.
+
+The idea:
+
+a cat is placed in a quantum superposition of:
+
+- alive
+- dead
+
+until measurement occurs.
+
+The GHZ/cat state mathematically resembles this idea:
+
+\[
+|000...0\rangle + |111...1\rangle
+\]
+
+Two completely different macroscopic possibilities existing simultaneously.
+
+---
+
+# Why Cat States Are Important
+
+Cat states are used in:
+
+- quantum error correction
+- quantum sensing
+- quantum communication
+- tests of quantum mechanics
+- precision measurements
+
+They are extremely fragile because:
+
+many qubits must remain perfectly correlated.
+
+---
+
+# Easy Analogy
+
+Imagine a choir.
+
+Normal qubits:
+- each singer sings independently
+
+Bell states:
+- two singers always harmonize together
+
+GHZ state:
+- the ENTIRE choir sings either:
+  - all low notes
+  - or all high notes
+
+Nothing in between.
+
+---
+
+# Key Insight
+
+Entanglement can scale.
+
+You are no longer limited to:
+
+- pairwise quantum correlations
+
+Entire groups of qubits can share one giant quantum state.
+
+---
+
+# Key Takeaways
+
+## 1. GHZ states are multi-qubit entangled states
+
+---
+
+## 2. The classic GHZ state is
+
+\[
+\frac{1}{\sqrt{2}}|000\rangle +
+\frac{1}{\sqrt{2}}|111\rangle
+\]
+
+---
+
+## 3. GHZ entanglement is global
+
+The whole system matters.
+
+---
+
+## 4. Cat states generalize this idea to many qubits
+
+\[
+|00...0\rangle + |11...1\rangle
+\]
+
+---
+
+## 5. These states are extremely fragile
+
+One disturbance can destroy the entanglement.
+
+---
+
+# Long story short
+
+GHZ states extend Bell-state entanglement to many qubits, creating one giant shared quantum state where all qubits behave collectively rather than individually.
+
+
+
+# More Is Different — Notes
+
+## Two Different Types of 3-Qubit Entanglement
+
+The note compares two famous entangled states:
+
+# 1. GHZ State
+
+\[
+\frac{1}{\sqrt{2}}|000\rangle +
+\frac{1}{\sqrt{2}}|111\rangle
+\]
+
+and
+
+# 2. W State
+
+\[
+\frac{1}{\sqrt{3}}|001\rangle +
+\frac{1}{\sqrt{3}}|010\rangle +
+\frac{1}{\sqrt{3}}|100\rangle
+\]
+
+Both are entangled.
+
+BUT...
+
+they are fundamentally different kinds of entanglement.
+
+---
+
+# Bell-State Analogy Breaks Down
+
+For Bell states:
+
+- one Bell state can become another
+- using only single-qubit gates
+
+So Bell states are considered:
+
+# equivalent forms of entanglement
+
+But for GHZ and W states:
+
+## impossible
+
+No sequence of single-qubit gates can transform one into the other.
+
+That means:
+
+# they belong to different entanglement classes
+
+This is a HUGE idea in quantum information.
+
+---
+
+# Why Are They Different?
+
+The easiest way to see it:
+
+measure one qubit.
+
+---
+
+# Measuring the GHZ State
+
+Start with:
+
+\[
+\frac{1}{\sqrt{2}}|000\rangle +
+\frac{1}{\sqrt{2}}|111\rangle
+\]
+
+Measure the 3rd qubit.
+
+Suppose result = `0`.
+
+The state collapses to:
+
+\[
+|000\rangle
+\]
+
+Now look at the remaining first two qubits:
+
+\[
+|00\rangle
+\]
+
+This is NOT entangled.
+
+The entanglement is gone.
+
+---
+
+# Measuring the W State
+
+Start with:
+
+\[
+\frac{1}{\sqrt{3}}|001\rangle +
+\frac{1}{\sqrt{3}}|010\rangle +
+\frac{1}{\sqrt{3}}|100\rangle
+\]
+
+Measure the 3rd qubit.
+
+Suppose result = `0`.
+
+The remaining state becomes:
+
+\[
+\frac{1}{\sqrt{2}}|010\rangle +
+\frac{1}{\sqrt{2}}|100\rangle
+\]
+
+Focus on first two qubits:
+
+\[
+\frac{1}{\sqrt{2}}|01\rangle +
+\frac{1}{\sqrt{2}}|10\rangle
+\]
+
+That is a:
+
+# Bell state
+
+So the remaining qubits are STILL entangled.
+
+---
+
+# Key Difference
+
+## GHZ entanglement
+
+- global
+- all-or-nothing
+- fragile
+
+If one qubit is measured:
+→ entanglement disappears
+
+---
+
+## W-state entanglement
+
+- distributed
+- more robust
+- survives partial measurement
+
+If one qubit is measured:
+→ some entanglement remains
+
+---
+
+# Why This Matters
+
+This tells us:
+
+# Entanglement is not just ONE thing
+
+There are many fundamentally different ways quantum systems can be correlated.
+
+As systems grow larger:
+
+- the number of entanglement structures explodes
+- classical computers cannot fully describe them efficiently
+
+This is one reason quantum computing becomes powerful.
+
+---
+
+# Easy Analogy
+
+## GHZ State
+
+Like three friends holding ONE fragile rope.
+
+Cut one connection:
+→ the whole structure collapses.
+
+---
+
+## W State
+
+Like three friends connected in a triangle.
+
+One connection breaks:
+→ others still remain connected.
+
+---
+
+# “More Is Different”
+
+This title is deep.
+
+Adding more qubits does NOT just make:
+
+- “bigger Bell states”
+
+Instead:
+
+# entirely new physics emerges
+
+New types of:
+
+- correlations
+- computation
+- information structures
+
+appear only in larger quantum systems.
+
+---
+
+# Why Quantum Computers Need This
+
+If quantum computers only created simple Bell-like correlations:
+
+- classical computers could simulate them more easily
+
+Quantum advantage requires:
+
+# highly complex many-body entanglement
+
+which becomes impossible to track classically.
+
+---
+
+# Key Takeaways
+
+## 1. GHZ and W states are both entangled
+
+But in fundamentally different ways.
+
+---
+
+## 2. GHZ entanglement is fragile
+
+Measuring one qubit destroys the whole correlation.
+
+---
+
+## 3. W-state entanglement is robust
+
+Some entanglement survives measurement.
+
+---
+
+## 4. Not all entanglement is equivalent
+
+There are different entanglement classes.
+
+---
+
+## 5. Large quantum systems create entirely new behaviors
+
+“More is different.”
+
+---
+
+# Long story short
+
+GHZ and W states prove that multipartite entanglement comes in fundamentally different forms, and larger quantum systems can exhibit completely new types of quantum correlations.
+
+
+# Ring the Bell State — Notes
+
+## Starting Point of Quantum Computation
+
+Quantum computers usually begin in:
+
+\[
+|00...0\rangle
+\]
+
+Example for 2 qubits:
+
+\[
+|00\rangle
+\]
+
+This means:
+
+- every qubit is individually in state `|0⟩`
+- no superposition
+- no entanglement
+
+This is called a:
+
+# separable state
+
+because each qubit can be described independently.
+
+---
+
+# Goal: Create Entanglement
+
+To build useful quantum algorithms, we need qubits to become:
+
+# correlated quantum mechanically
+
+That means:
+
+# entangled
+
+---
+
+# Why Single-Qubit Gates Are Not Enough
+
+Single-qubit gates only affect ONE qubit at a time.
+
+Examples:
+
+- H
+- X
+- Z
+- S
+- T
+
+These gates can create:
+
+- superposition
+- phase changes
+
+BUT...
+
+they cannot connect qubits together.
+
+So they cannot create entanglement by themselves.
+
+---
+
+# Need Multi-Qubit Gates
+
+Entanglement requires interaction between qubits.
+
+This is where gates like:
+
+- CNOT
+- CZ
+
+become important.
+
+---
+
+# Important Observation
+
+Not every two-qubit gate creates entanglement.
+
+Example:
+
+## SWAP Gate
+
+SWAP simply exchanges qubits:
+
+\[
+|\psi_1\rangle |\psi_2\rangle
+\rightarrow
+|\psi_2\rangle |\psi_1\rangle
+\]
+
+The qubits remain independent.
+
+So:
+
+# SWAP does NOT create entanglement
+
+---
+
+# CNOT and CZ Can Create Entanglement
+
+But only under the right conditions.
+
+Example:
+
+If the input is:
+
+\[
+|00\rangle
+\]
+
+then:
+
+- CNOT does nothing
+- CZ does nothing
+
+Output remains:
+
+\[
+|00\rangle
+\]
+
+Still separable.
+
+Still no entanglement.
+
+---
+
+# The Missing Ingredient: Superposition
+
+The note says:
+
+> entanglement is a superposition of correlations
+
+So before correlating qubits,
+we first create superposition.
+
+This is why we apply:
+
+# H gate
+
+before CNOT.
+
+---
+
+# Creating a Bell State
+
+Start with:
+
+\[
+|00\rangle
+\]
+
+---
+
+## Step 1 — Apply H to first qubit
+
+\[
+|00\rangle
+\rightarrow
+\frac{1}{\sqrt{2}}(|00\rangle + |10\rangle)
+\]
+
+Now:
+
+- first qubit is in superposition
+- second qubit still `0`
+
+But the qubits are NOT entangled yet.
+
+This state is still separable.
+
+---
+
+## Step 2 — Apply CNOT
+
+First qubit = control
+
+Second qubit = target
+
+CNOT flips second qubit when first qubit is `1`.
+
+So:
+
+\[
+|00\rangle \rightarrow |00\rangle
+\]
+
+and
+
+\[
+|10\rangle \rightarrow |11\rangle
+\]
+
+Final state:
+
+\[
+\frac{1}{\sqrt{2}}(|00\rangle + |11\rangle)
+\]
+
+This is:
+
+# a Bell state
+
+Now the qubits ARE entangled.
+
+---
+
+# Why Entanglement Appears
+
+The CNOT gate creates:
+
+# conditional behavior
+
+The second qubit depends on the first.
+
+Since the first qubit was already in superposition:
+
+- both possibilities happen simultaneously
+
+creating:
+
+# superposition of correlations
+
+---
+
+# Key Insight
+
+Entanglement needs BOTH:
+
+## 1. Superposition
+(created by H)
+
+AND
+
+## 2. Interaction between qubits
+(created by CNOT or CZ)
+
+Without both ingredients:
+
+- no entanglement
+
+---
+
+# Easy Analogy
+
+Think of two dancers.
+
+## Before H:
+One dancer stands still.
+
+## After H:
+One dancer performs two possible moves simultaneously.
+
+## After CNOT:
+The second dancer copies the first dancer’s move.
+
+Now their motions are linked together.
+
+That linkage is entanglement.
+
+---
+
+# Important Pattern
+
+This circuit appears EVERYWHERE in quantum computing:
+
+\[
+H \rightarrow CNOT
+\]
+
+because it is the simplest way to generate Bell states.
+
+---
+
+# Key Takeaways
+
+## 1. Quantum computers start in separable states
+
+\[
+|00...0\rangle
+\]
+
+---
+
+## 2. Single-qubit gates alone cannot create entanglement
+
+---
+
+## 3. Multi-qubit gates create correlations
+
+---
+
+## 4. Entanglement requires superposition first
+
+Usually from an H gate.
+
+---
+
+## 5. The Bell-state circuit is:
+
+\[
+H + CNOT
+\]
+
+---
+
+# Long story short
+
+Entanglement is created by combining superposition with conditional multi-qubit interactions, and the classic Bell-state circuit uses an H gate followed by a CNOT gate to achieve this.
+
+
+# Interaction — Notes
+
+## Main Idea
+Controlled gates like `CNOT` are special because they can create **entanglement** between qubits.
+
+But entanglement does not happen automatically.
+
+Two things are needed:
+
+1. The control qubit must be in a **superposition**
+2. The gate must act **conditionally** on that qubit
+
+---
+
+# Example State
+
+Start with:
+
+\[
+\frac{1}{\sqrt{2}}|00\rangle + \frac{1}{\sqrt{2}}|10\rangle
+\]
+
+This means:
+
+- first qubit is in superposition (`0` and `1`)
+- second qubit is `0`
+
+---
+
+# What Happens with CNOT?
+
+Recall:
+
+- `CNOT` flips the target qubit ONLY if control = `1`
+
+Apply CNOT with:
+- first qubit = control
+- second qubit = target
+
+Then:
+
+- `|00⟩ → |00⟩`
+- `|10⟩ → |11⟩`
+
+Result:
+
+\[
+\frac{1}{\sqrt{2}}|00\rangle + \frac{1}{\sqrt{2}}|11\rangle
+\]
+
+This is a **Bell state** → an entangled state.
+
+---
+
+# Why This Creates Entanglement
+
+Before CNOT:
+
+- qubits were independent
+
+After CNOT:
+
+- second qubit depends on the first qubit
+
+If first qubit is measured:
+- second qubit is instantly determined
+
+The information is now stored in the **relationship** between the qubits.
+
+That relationship is entanglement.
+
+---
+
+# Important Insight
+
+The control qubit is in superposition:
+
+\[
+|0\rangle + |1\rangle
+\]
+
+So the gate acts in two ways simultaneously:
+
+- one branch activates the gate
+- one branch does not
+
+This creates a superposition of different correlations.
+
+---
+
+# Physical Interpretation
+
+A controlled gate represents:
+
+- cause and effect
+- interaction between qubits
+
+Quantum entanglement comes from:
+- interaction + superposition together
+
+Without interaction:
+- no entanglement
+
+Without superposition:
+- still no entanglement
+
+You need both.
+
+---
+
+# Simple Analogy
+
+Imagine:
+
+- one switch controls a light
+- but the switch itself is in two states at once
+
+So:
+- in one reality the light changes
+- in another reality it does not
+
+Both possibilities coexist together.
+
+That shared quantum behavior creates entanglement.
+
+---
+
+# Key Takeaways
+
+- `CNOT` can create entanglement
+- superposition alone is NOT enough
+- interaction alone is NOT enough
+- entanglement = superposition of correlated outcomes
+- controlled gates physically represent quantum interaction
+
+---
+
+## Long story short
+
+Entanglement is created when a qubit in superposition conditionally affects another qubit through a controlled gate like `CNOT`. The result is that the qubits can no longer be described independently.
+
+
+# Growing Entanglement — Notes
+
+## Main Idea
+The lesson explains how to create a **GHZ state**, which is a famous 3-qubit entangled state:
+
+\[
+\frac{1}{\sqrt{2}}(|000\rangle + |111\rangle)
+\]
+
+This means:
+
+- all qubits can be measured as `000`
+- or all qubits can be measured as `111`
+- both possibilities exist simultaneously before measurement
+
+---
+
+# Step-by-Step Logic
+
+## 1. Start with all qubits at zero
+
+Quantum computers usually begin in:
+
+\[
+|000\rangle
+\]
+
+This is **not entangled**.
+
+Each qubit is independent.
+
+---
+
+## 2. Apply an H gate to the first qubit
+
+The Hadamard gate creates superposition:
+
+\[
+|000\rangle
+\rightarrow
+\frac{1}{\sqrt{2}}(|000\rangle + |100\rangle)
+\]
+
+Now:
+
+- first qubit is in superposition
+- other qubits are still `0`
+
+Still NOT entangled yet.
+
+---
+
+## 3. Apply first CNOT
+
+Use qubit 1 as control and qubit 2 as target.
+
+The state becomes:
+
+\[
+\frac{1}{\sqrt{2}}(|000\rangle + |110\rangle)
+\]
+
+Why?
+
+- in `|000⟩`, control = 0 → nothing changes
+- in `|100⟩`, control = 1 → second qubit flips
+
+Now qubits are correlated.
+
+This creates entanglement.
+
+---
+
+## 4. Apply second CNOT
+
+Use qubit 2 as control and qubit 3 as target.
+
+Now:
+
+\[
+\frac{1}{\sqrt{2}}(|000\rangle + |111\rangle)
+\]
+
+This is the GHZ state.
+
+---
+
+# Why Order Matters
+
+The lesson compares it to dominoes.
+
+Each qubit causes the next qubit to flip.
+
+# Don’t Forget Phase — Notes
+
+## Main Idea
+
+The lesson explains that:
+
+- entangled states can also contain **phase differences**
+- changing the phase changes the quantum state
+- but it does NOT change how strongly entangled the qubits are
+
+---
+
+# GHZ State with a Phase
+
+Normal GHZ state:
+
+\[
+\frac{1}{\sqrt{2}}(|000\rangle + |111\rangle)
+\]
+
+Phase-added GHZ state:
+
+\[
+\frac{1}{\sqrt{2}}(|000\rangle + e^{i\phi}|111\rangle)
+\]
+
+The term:
+
+\[
+e^{i\phi}
+\]
+
+is a quantum phase factor.
+
+It changes the relationship between the two parts of the superposition.
+
+---
+
+# What Changes?
+
+The phase changes:
+
+- interference behavior
+- future measurement probabilities after more gates
+- how the state evolves
+
+But it does NOT change:
+
+- the amount of entanglement
+
+The qubits are still fully connected as one quantum system.
+
+---
+
+# Important Insight
+
+Two entangled states can:
+
+- have identical measurement statistics
+- but still be different quantum states
+
+because phase matters in quantum mechanics.
+
+---
+
+# Parallel Phase Accumulation
+
+Normally, we imagine phase gates stacking one after another:
+
+```text
+Z → Z → Z

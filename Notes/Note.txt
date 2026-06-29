@@ -10387,3 +10387,722 @@ Normally, we imagine phase gates stacking one after another:
 
 ```text
 Z → Z → Z
+
+# From Math to Physics — Notes
+
+## Main Idea
+
+Quantum circuits and equations are mathematical descriptions.
+
+Real quantum computers must physically perform those operations using actual matter, energy, electromagnetic fields, and carefully engineered interactions.
+
+This section explains the transition from:
+
+```text
+quantum math
+        ↓
+physical quantum hardware
+
+
+# Trapped Ions — Notes
+
+## Main Idea
+
+Trapped-ion quantum computers use:
+
+- electrically charged atoms called ions
+- electromagnetic traps to hold them in place
+
+Because all ions have positive charge:
+
+```text
+they repel each other
+```
+
+so they naturally arrange themselves into an ordered chain or array.
+
+---
+
+# Ions Never Sit Perfectly Still
+
+Even when trapped:
+
+```text
+ions still move slightly
+```
+
+Their motions are tiny but extremely important.
+
+When many ions are trapped together:
+- their movements become synchronized
+- they oscillate together like a coordinated dance
+
+Examples of motion:
+- side-to-side swaying
+- collective “breathing” motion
+
+Most importantly:
+
+```text
+the motion itself obeys quantum mechanics
+```
+
+---
+
+# Why This Matters
+
+Directly making two distant ions interact is difficult.
+
+Especially if:
+- the ions are far apart in the chain
+
+So engineers use:
+
+```text
+shared collective motion
+```
+
+as a communication channel.
+
+The motion acts as a mediator between ions.
+
+---
+
+# Real-Life Analogy
+
+Imagine several people standing on the same trampoline.
+
+If one person jumps:
+- vibrations spread through the trampoline
+- everyone else feels the motion
+
+The trampoline transfers information between people.
+
+In trapped-ion systems:
+- ions are like the people
+- the shared vibration is like the trampoline
+
+---
+
+# Motion Can Store Quantum Information
+
+The shared motion can itself behave like a qubit.
+
+So the system contains:
+
+```text
+Qubit 1 → Ion 1 internal energy state
+Qubit 2 → Ion 2 internal energy state
+Qubit 3 → Shared motional state
+```
+
+This means:
+- quantum information can temporarily live in the motion
+
+---
+
+# Creating a CNOT Gate
+
+Suppose we want:
+
+```text
+CNOT(Ion 1 → Ion 2)
+```
+
+Instead of directly coupling the ions:
+
+```text
+Ion 1 ↔ Motion ↔ Ion 2
+```
+
+The shared motion transfers the information.
+
+---
+
+# Step-by-Step Process
+
+## Step 1 — SWAP Ion 1 with Motion
+
+A SWAP gate exchanges:
+
+```text
+Ion 1 state ↔ Motion state
+```
+
+Now the motion temporarily stores the quantum information from ion 1.
+
+---
+
+## Step 2 — Apply CNOT
+
+Now perform:
+
+```text
+CNOT(Motion → Ion 2)
+```
+
+The motion controls ion 2.
+
+This transfers the influence of ion 1 onto ion 2.
+
+---
+
+## Step 3 — Uncompute the SWAP
+
+Reverse the original SWAP operation.
+
+This:
+- restores the motion to its original state
+- removes temporary information from the mediator
+
+while preserving the entanglement between:
+- ion 1
+- ion 2
+
+This cleanup process is called:
+
+```text
+uncomputation
+```
+
+---
+
+# Why Uncomputation Is Important
+
+Without uncomputation:
+- leftover information remains in the motion
+- unwanted entanglement appears
+- errors accumulate
+
+Quantum computers must clean temporary quantum resources carefully.
+
+---
+
+# What Actually Happened?
+
+Even though the ions never strongly interacted directly:
+
+- information moved through the shared motion
+- the motion mediated the interaction
+- the ions became entangled
+
+The shared vibration acts like:
+
+```text
+a quantum communication bus
+```
+
+---
+
+# Why Trapped Ions Are Powerful
+
+Advantages:
+- very accurate gates
+- long coherence times
+- precise control
+- high-quality entanglement
+
+This is why trapped ions are one of the leading quantum computing architectures.
+
+---
+
+# Key Takeaway
+
+Trapped-ion quantum computers create entanglement using synchronized quantum motion shared between ions.
+
+The motion temporarily stores and transfers quantum information, allowing distant ions to interact through carefully controlled quantum operations.
+
+---
+
+# Long story short
+
+In trapped-ion quantum computers, ions communicate through shared quantum vibrations. Engineers swap information into the motion, use the motion to control another ion, then uncompute the temporary steps to create clean entanglement.
+
+# Neutral Atoms — Notes
+
+## Main Idea
+
+Neutral-atom quantum computers use:
+
+- individual neutral atoms
+- trapped and arranged using laser light
+
+Unlike ions:
+- neutral atoms have no overall electric charge
+
+They are usually organized into:
+- lines
+- grids
+- lattices
+
+using carefully controlled laser traps.
+
+---
+
+# How Atoms Are Trapped
+
+The atoms are held in place by:
+
+```text
+oscillating laser light
+```
+
+The repeating electromagnetic field creates trapping locations for atoms.
+
+This is sometimes called:
+- an optical lattice
+- optical tweezers
+
+---
+
+# The Challenge
+
+Neutral atoms are usually separated from each other.
+
+That is good because:
+- isolation reduces noise
+
+But it also creates a problem:
+
+```text
+distant atoms do not naturally interact strongly
+```
+
+So engineers need a way to make atoms “feel” each other.
+
+---
+
+# The Key Trick — Extra Energy State
+
+Neutral-atom systems use an additional high-energy state:
+
+```text
+|r⟩
+```
+
+called a:
+- Rydberg state
+
+When an atom enters this state:
+- its outer electron moves very far from the nucleus
+- the atom becomes physically much larger
+
+---
+
+# Real-Life Analogy
+
+Imagine two people opening giant umbrellas.
+
+If one person opens a huge umbrella:
+- nearby people cannot open theirs fully
+
+There is not enough space.
+
+Similarly:
+- one atom in the Rydberg state prevents nearby atoms from entering the same state
+
+This effect is called:
+
+```text
+Rydberg blockade
+```
+
+---
+
+# The Blockade Effect
+
+If one atom is already in:
+
+```text
+|r⟩
+```
+
+then another nearby atom cannot easily enter:
+
+```text
+|r⟩
+```
+
+So the joint state:
+
+```text
+|rr⟩
+```
+
+is effectively blocked.
+
+Technically:
+- it requires much more energy
+- so it becomes extremely unlikely
+
+---
+
+# What Happens Instead?
+
+Suppose both atoms are excited simultaneously.
+
+Instead of reaching:
+
+```text
+|rr⟩
+```
+
+the system becomes trapped in a superposition:
+
+\[
+\frac{1}{\sqrt{2}}(|r0\rangle + |0r\rangle)
+\]
+
+This means:
+- either atom 1 is excited
+OR
+- atom 2 is excited
+
+but not both simultaneously.
+
+---
+
+# Why This Is Important
+
+This state is already:
+
+```text
+entangled
+```
+
+because:
+- the atoms are correlated
+- we cannot describe them independently
+
+---
+
+# The Small Problem
+
+The entanglement currently exists between:
+
+```text
+|0⟩ and |r⟩
+```
+
+But quantum computers usually store information in:
+
+```text
+|0⟩ and |1⟩
+```
+
+So we must convert the Rydberg state into the computational basis.
+
+---
+
+# Final Step
+
+Apply a gate that maps:
+
+```text
+|r⟩ ↔ |1⟩
+```
+
+on each atom.
+
+The state becomes:
+
+\[
+\frac{1}{\sqrt{2}}(|10\rangle + |01\rangle)
+\]
+
+which is a Bell state.
+
+---
+
+# What Actually Happened?
+
+The atoms never directly “touched.”
+
+Instead:
+- the giant Rydberg excitation changed nearby energy levels
+- the blockade forced a quantum superposition
+- that superposition became entanglement
+
+---
+
+# Why Neutral Atoms Are Interesting
+
+Advantages:
+- highly scalable
+- flexible atom arrangements
+- long coherence times
+- programmable geometries
+
+This makes them promising for:
+- quantum simulation
+- large-scale quantum processors
+
+---
+
+# Key Takeaway
+
+Neutral-atom quantum computers create entanglement using the Rydberg blockade effect.
+
+Exciting one atom into a huge high-energy state prevents nearby atoms from doing the same, forcing the system into an entangled superposition.
+
+---
+
+# Long story short
+
+Neutral atoms become entangled through the Rydberg blockade. One atom entering a giant excited state prevents nearby atoms from entering the same state, creating an entangled superposition that can later be converted into a Bell state.
+
+# Polarization of Photons — Notes
+
+## Main Idea
+
+Photonic quantum computers use:
+
+```text
+photons (particles of light)
+```
+
+to carry quantum information.
+
+One common way to encode qubits in photons is through:
+
+```text
+polarization
+```
+
+---
+
+# What Is Polarization?
+
+Polarization describes:
+- the direction the electromagnetic field oscillates
+
+Common polarization states:
+
+```text
+|H⟩ = Horizontal polarization
+|V⟩ = Vertical polarization
+```
+
+These act like:
+- quantum versions of 0 and 1
+
+---
+
+# Creating Entangled Photons
+
+The most common technique is:
+
+```text
+Spontaneous Parametric Down-Conversion
+```
+
+often abbreviated:
+
+```text
+SPDC
+```
+
+---
+
+# The Basic Idea
+
+One high-energy photon enters a special crystal.
+
+Inside the crystal:
+- the photon spontaneously splits into two lower-energy photons
+
+Important:
+
+```text
+energy is conserved
+```
+
+The total energy after splitting equals the original energy before splitting.
+
+---
+
+# Real-Life Analogy
+
+Imagine breaking a large bill into two smaller bills.
+
+Example:
+
+```text
+$20 → $10 + $10
+```
+
+The total value stays the same.
+
+Similarly:
+
+```text
+1 high-energy photon
+→
+2 lower-energy photons
+```
+
+---
+
+# Conservation of Momentum
+
+Momentum must also be conserved.
+
+This creates strong correlations between the photons.
+
+Typically:
+- one photon becomes horizontally polarized
+- the other vertically polarized
+
+But there is a quantum problem:
+
+```text
+we cannot distinguish which photon is which
+```
+
+---
+
+# The Important Quantum Ambiguity
+
+We cannot say:
+
+```text
+Photon A = H
+Photon B = V
+```
+
+OR
+
+```text
+Photon A = V
+Photon B = H
+```
+
+Instead, quantum mechanics forces a superposition:
+
+\[
+|H\rangle|V\rangle + |V\rangle|H\rangle
+\]
+
+This is an entangled Bell-type state.
+
+---
+
+# Why This Is Entanglement
+
+The photons are perfectly correlated:
+- if one is measured horizontal
+- the other must be vertical
+
+But before measurement:
+- neither photon has its own definite polarization
+
+The pair must be described together.
+
+---
+
+# The Big Problem with Photons
+
+Photon generation is:
+
+```text
+random
+```
+
+Quantum mechanics predicts:
+- average probabilities
+
+but NOT:
+- exact emission times
+
+So we do not know precisely:
+- when photon pairs are created
+
+This creates synchronization problems.
+
+---
+
+# The Solution — Heralding
+
+Scientists use a clever technique called:
+
+```text
+heralding
+```
+
+---
+
+# Heralding Idea
+
+A third photon or detector is used.
+
+Suppose:
+- three entangled photons are generated
+- one photon goes toward a detector
+- the other two travel elsewhere
+
+When the detector clicks:
+
+```text
+we instantly know
+the other two photons exist
+```
+
+and are entangled.
+
+The detector acts like:
+
+```text
+a herald
+```
+
+announcing the successful creation of the pair.
+
+---
+
+# Real-Life Analogy
+
+Imagine waiting for a package delivery.
+
+You do not know exactly when it arrives.
+
+But once your phone notification appears:
+
+```text
+“Package Delivered”
+```
+
+you instantly know:
+- the package is there
+
+Similarly:
+- detector clicks announce the presence of entangled photons
+
+---
+
+# Why Photons Are Powerful
+
+Advantages:
+- travel extremely fast
+- interact weakly with environment
+- excellent for communication
+- ideal for quantum networking
+
+This is why photons are central to:
+- quantum internet research
+- quantum cryptography
+- long-distance quantum communication
+
+---
+
+# Key Takeaway
+
+Entangled photons are commonly created through spontaneous parametric down-conversion, where one photon splits into two correlated photons.
+
+Because photon creation is random, scientists use heralding techniques to detect when entangled photon pairs have successfully formed.
+
+---
+
+# Long story short
+
+A high-energy photon can split into two lower-energy photons whose polarizations become entangled. Since photon generation happens randomly, heralding detectors are used to announce when entangled photons are successfully created.
+

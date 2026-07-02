@@ -714,3 +714,226 @@ State 0 and 1 are eigen values of Z whereas + and - are eigen values of X.
 ##############################
 ##############################
 ##############################
+
+# Tensor Product: Why |1⟩ ⊗ |0⟩ = |10⟩
+
+## 1. Explanation
+The **tensor product** is the mathematical operation used to combine multiple qubits into a single quantum system. If you have one qubit in the state **|1⟩** and another in the state **|0⟩**, their combined state is written as **|1⟩ ⊗ |0⟩ = |10⟩**. The symbol **⊗** means "combine these two quantum states." The order is important because **|10⟩** and **|01⟩** represent different states. Tensor products allow us to describe systems with two or more qubits, which is essential for quantum algorithms, entanglement, and quantum gates.
+
+## 2. Simple Analogy
+Think of two light switches. The first switch belongs to Room A, and the second belongs to Room B.
+
+- Room A = ON (1)
+- Room B = OFF (0)
+
+Instead of describing them separately, you write their combined state as **10**. The tensor product is simply the mathematical way of combining the states of multiple qubits into one larger state.
+
+## 3. Key Insights
+- The tensor product combines quantum states.
+- **|1⟩ ⊗ |0⟩ = |10⟩** means the first qubit is 1 and the second is 0.
+- Order matters: **|10⟩ ≠ |01⟩**.
+- Tensor products increase the size of the Hilbert space.
+- Multi-qubit systems are built using tensor products.
+
+## 4. Questions You Should Be Able to Answer
+1. What is a tensor product?
+2. Why is **|1⟩ ⊗ |0⟩** written as **|10⟩**?
+3. Why does the order of qubits matter?
+4. How do tensor products create multi-qubit systems?
+5. What role do tensor products play in quantum computing?
+
+## 5. Future Endeavors (Open Mysteries)
+- How can scientists efficiently simulate tensor products of millions of qubits?
+- Can tensor network methods reduce the memory needed for quantum simulations?
+- How do tensor products describe highly entangled systems?
+- Can new mathematical techniques simplify calculations involving large quantum systems?
+- How will tensor products be used in future quantum algorithms?
+
+## 6. Fun Fact
+🤯 The Hilbert space of **n** qubits is built entirely by taking tensor products of single-qubit spaces. This is why the number of possible quantum states grows exponentially as **2ⁿ**.
+
+## 7. Long Story Short
+The tensor product is the operation used to combine individual qubits into a larger quantum system. When one qubit is in **|1⟩** and another is in **|0⟩**, the combined state is **|10⟩**. The order of the qubits is important because swapping them changes the state. Tensor products are the foundation of multi-qubit quantum computing and make phenomena like entanglement possible. Without tensor products, we could not describe quantum systems with more than one qubit.
+
+## 8. Vocabulary
+
+| Word | Meaning |
+|------|---------|
+| Tensor Product (⊗) | Operation that combines quantum states. |
+| Multi-Qubit System | A system containing two or more qubits. |
+| Hilbert Space | The mathematical space where quantum states exist. |
+| Basis State | A fundamental state such as **|00⟩**, **|01⟩**, **|10⟩**, or **|11⟩**. |
+| Order | The position of each qubit in the combined state. |
+
+## 9. Formula Sheet
+
+Single-qubit basis vectors:
+
+\[
+|0\rangle=
+\begin{bmatrix}
+1\\
+0
+\end{bmatrix},
+\qquad
+|1\rangle=
+\begin{bmatrix}
+0\\
+1
+\end{bmatrix}
+\]
+
+Tensor product:
+
+\[
+|1\rangle\otimes|0\rangle
+=
+\begin{bmatrix}
+0\\
+1
+\end{bmatrix}
+\otimes
+\begin{bmatrix}
+1\\
+0
+\end{bmatrix}
+=
+\begin{bmatrix}
+0\\
+0\\
+1\\
+0
+\end{bmatrix}
+=
+|10\rangle
+\]
+
+Similarly,
+
+- \(|0\rangle \otimes |0\rangle = |00\rangle\)
+- \(|0\rangle \otimes |1\rangle = |01\rangle\)
+- \(|1\rangle \otimes |0\rangle = |10\rangle\)
+- \(|1\rangle \otimes |1\rangle = |11\rangle\)
+
+## 10. One-Sentence Memory Trick
+**The tensor product "glues" individual qubits together to create one larger quantum state.**
+
+##############################
+##############################
+##############################
+
+# CX (CNOT) Gate and CZ Gate
+
+## 1. Explanation
+The **CX gate**, also called the **Controlled-NOT (CNOT) gate**, is a two-qubit gate where one qubit acts as the **control** and the other as the **target**. If the control qubit is **|1⟩**, the target qubit is flipped (**0 ↔ 1**). If the control qubit is **|0⟩**, nothing happens. The **CZ (Controlled-Z) gate** also has a control and a target qubit, but instead of flipping the target, it changes the **phase** of the state **|11⟩** by multiplying it by **−1**. Unlike CNOT, the CZ gate does not change the measured values of the qubits—it only changes their phase. Both gates are fundamental for creating **entanglement**, which is essential for quantum algorithms and quantum communication.
+
+## 2. Simple Analogy
+Imagine two friends playing a game:
+
+- **CNOT (CX):** If Friend A raises their hand (is **1**), Friend B must switch seats (0 becomes 1 or 1 becomes 0). If Friend A keeps their hand down (is **0**), Friend B stays where they are.
+- **CZ:** If **both** friends raise their hands (**11**), they secretly exchange a special signal. Nothing looks different from the outside, but their relationship (phase) has changed.
+
+## 3. Key Insights
+- **CX (CNOT)** flips the target qubit only when the control qubit is **1**.
+- **CZ** changes the phase of the **|11⟩** state.
+- Both are two-qubit gates.
+- Both can create entanglement.
+- CNOT changes bit values; CZ changes phase.
+
+## 4. Questions You Should Be Able to Answer
+1. What is the purpose of the CNOT (CX) gate?
+2. What is the difference between CX and CZ?
+3. Which state is affected by the CZ gate?
+4. Why are these gates important for entanglement?
+5. Which gate changes the qubit's value, and which changes its phase?
+
+## 5. Future Endeavors (Open Mysteries)
+- How can scientists build two-qubit gates with extremely low error rates?
+- Can faster entangling gates improve quantum computing performance?
+- Which physical hardware produces the highest-quality CX and CZ gates?
+- How can noise in two-qubit gates be minimized?
+- Can new gate designs outperform today's CX and CZ implementations?
+
+## 6. Fun Fact
+🤯 Two-qubit gates like **CX** and **CZ** are much harder to build than single-qubit gates. In fact, they are often the largest source of errors in today's quantum computers.
+
+## 7. Long Story Short
+The **CX (CNOT)** gate flips the target qubit when the control qubit is **1**. The **CZ** gate leaves the qubits unchanged in value but adds a **−1 phase** to the **|11⟩** state. Although they work differently, both gates are used to create entanglement between qubits. Entanglement is one of the key resources that gives quantum computers their power. Nearly every important quantum algorithm uses CX or CZ gates.
+
+## 8. Vocabulary
+
+| Word | Meaning |
+|------|---------|
+| Control Qubit | The qubit that determines whether the operation occurs. |
+| Target Qubit | The qubit that is acted upon. |
+| CNOT (CX) | A controlled gate that flips the target if the control is **1**. |
+| CZ | A controlled gate that changes the phase of the **|11⟩** state. |
+| Entanglement | A strong quantum correlation between qubits. |
+
+## 9. Truth Tables
+
+### CX (CNOT)
+
+| Input | Output |
+|-------|--------|
+| \|00⟩ | \|00⟩ |
+| \|01⟩ | \|01⟩ |
+| \|10⟩ | \|11⟩ |
+| \|11⟩ | \|10⟩ |
+
+### CZ
+
+| Input | Output |
+|-------|--------|
+| \|00⟩ | \|00⟩ |
+| \|01⟩ | \|01⟩ |
+| \|10⟩ | \|10⟩ |
+| \|11⟩ | **−\|11⟩** |
+
+## 10. Visualization
+
+**CX (CNOT) Circuit**
+
+```
+Control ──●──
+           │
+Target ───⊕──
+```
+
+**CZ Circuit**
+
+```
+Control ──●──
+           │
+Target ───●──
+```
+
+## 11. One-Sentence Memory Trick
+**CX changes the target's value, while CZ changes the target system's phase—both create entanglement.**
+
+##############################
+##############################
+##############################
+
+# Number of Qubits and Possible States
+
+An **n-qubit** quantum system has **\(2^n\)** computational basis states. This exponential growth is one of the main reasons quantum computers can represent so much information at once.
+
+| Number of Qubits (n) | Number of Basis States (\(2^n\)) |
+|----------------------|-----------------------------------|
+| 1 | 2 → \|0⟩, \|1⟩ |
+| 2 | 4 → \|00⟩, \|01⟩, \|10⟩, \|11⟩ |
+| 3 | 8 |
+| 4 | 16 |
+| 5 | 32 |
+| 10 | 1,024 |
+| 20 | 1,048,576 |
+
+**** | n | \(2^n\) | ****
+
+### Memory Trick
+**Each time you add one qubit, you double the number of possible basis states.**
+
+##############################
+##############################
+##############################

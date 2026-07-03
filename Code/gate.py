@@ -11,3 +11,5 @@ blc = cirq_web.BlochSphere(state_vector= vec)
 print(circuit)
 print(vec)
 print(ket)
+
+

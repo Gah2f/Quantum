@@ -1085,3 +1085,95 @@ I|\psi\rangle = |\psi\rangle
 ##############################
 ##############################
 ##############################
+
+if a state is [a b]: to normalize it multiply the state by 
+
+1/ sqrt (a^2 + b^2) 
+
+so it becomes 1/ sqrt (a^2 + b^2) [a b]
+
+Tensor Product: 
+
+[a b] [c d] = [ac ad bc bd]
+
+# Big O Notation
+
+## 1. Explanation
+**Big O notation** describes how the **running time or memory usage** of an algorithm grows as the input size (**n**) increases. It focuses on the algorithm's **worst-case performance** and ignores constants or small details. Big O helps compare algorithms based on how well they scale to large problems. For example, an algorithm with **O(n)** grows linearly with the input size, while **O(n²)** grows much faster. In quantum computing, Big O is often used to compare the efficiency of **classical and quantum algorithms**, such as Grover's and Shor's algorithms.
+
+## 2. Simple Analogy
+Imagine you're looking for a friend's name in a phone book.
+
+- **O(1):** You instantly know the page.
+- **O(log n):** You repeatedly open the book in half (binary search).
+- **O(n):** You check names one by one.
+- **O(n²):** You compare every name with every other name.
+
+The slower the growth, the more efficient the algorithm.
+
+## 3. Key Insights
+- Big O measures how algorithms scale with input size.
+- It focuses on the worst-case growth.
+- Smaller growth rates are generally better.
+- Constants are ignored (e.g., O(2n) = O(n)).
+- Non dominant terms ignored (e.g. n^2 + n => n^2)
+- It is used to compare both classical and quantum algorithms.
+
+## 4. Questions You Should Be Able to Answer
+1. What is Big O notation?
+2. Why are constants ignored in Big O?
+3. What does **O(n²)** mean?
+4. Which is faster: **O(log n)** or **O(n)**?
+5. Why is Big O important in quantum computing?
+
+## 5. Future Endeavors (Open Mysteries)
+- Can new quantum algorithms reduce the complexity of important problems?
+- Which problems truly benefit from quantum speedups?
+- Are there limits to how much quantum computers can improve algorithm efficiency?
+- Can researchers discover algorithms faster than today's best ones?
+- How can quantum algorithms be optimized for real hardware?
+
+## 6. Fun Fact
+🤯 **Grover's Algorithm** searches an unsorted database in **O(√n)** time, while the best classical algorithm requires **O(n)** time—a quadratic speedup!
+
+## 7. Long Story Short
+Big O notation measures how an algorithm's performance changes as the input grows. It helps computer scientists compare algorithms without worrying about hardware or programming language. Lower Big O values generally indicate more efficient algorithms for large inputs. In quantum computing, Big O is essential for understanding why some quantum algorithms outperform classical ones. It is one of the most important tools in computer science.
+
+## 8. Common Big O Complexities
+
+| Big O | Name | Example |
+|-------|------|---------|
+| **O(1)** | Constant | Access an array element |
+| **O(log n)** | Logarithmic | Binary search |
+| **O(n)** | Linear | Scan a list |
+| **O(n log n)** | Linearithmic | Merge sort |
+| **O(n²)** | Quadratic | Compare every pair |
+| **O(2ⁿ)** | Exponential | Try every possible combination |
+
+## 9. One-Sentence Memory Trick
+**Big O tells you how an algorithm grows as the problem gets bigger—the slower it grows, the better it scales.**
+
+##############################
+##############################
+##############################
+
+## 2. Simple Analogy (Funny Version)
+
+Imagine you're at an **all-you-can-eat pizza party** 🍕.
+
+- **O(1):** You grab the first slice on the table—done instantly.
+- **O(log n):** You keep asking, "Is the pizza to the left or right?" cutting the search area in half each time.
+- **O(n):** You check every pizza box one by one until you find pepperoni.
+- **O(n²):** Every person compares **their pizza with everyone else's pizza** to decide whose looks better. With more people, the arguments explode!
+- **O(2ⁿ):** You decide to try **every possible topping combination** before taking your first bite. By the time you're done, the party is over.
+
+**The bigger the party gets, the more important it is to choose a smarter strategy rather than just working harder.**
+
+Imagine you're trying to find your lost phone at a huge party with **n** guests.
+
+- **O(1):** Your friend points directly to your phone. 📱
+- **O(log n):** You keep asking, "Is it in the left half or the right half of the room?" cutting the search area in half each time.
+- **O(√n):** Instead of asking **everyone**, you only ask about the **square root of the guests**. If there are **10,000 people**, you only need to ask about **100** of them. This is like **Grover's Algorithm**, which is much faster than checking everyone.
+- **O(n):** You ask every single guest one by one.
+- **O(n²):** Every guest asks every other guest if they've seen your phone. Chaos! 🤯
+- **O(2ⁿ):** You decide to search every possible place and every possible sequence of places. By the time you're done... the party is over and someone has already turned your phone in. 😂

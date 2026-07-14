@@ -415,3 +415,61 @@ Diagonal states:
 ##############################
 ##############################
 ##############################
+
+# E91 Protocol (Ekert 1991)
+
+## 1. Explanation
+The **E91 Protocol** is a **Quantum Key Distribution (QKD)** protocol proposed by **Artur Ekert in 1991**. Unlike **BB84**, which sends individual photons, E91 uses **pairs of entangled photons**. One photon is sent to **Alice** and the other to **Bob**. Even though the photons may be far apart, their measurement results are strongly correlated because of **quantum entanglement**. By comparing some of their measurement results, Alice and Bob can test for **Bell inequality violations**. If the correlations match quantum mechanics, they know no eavesdropper has interfered, and they can use the remaining measurements as a secret key.
+
+## 2. Simple Analogy
+Imagine a pair of **magic dice** 🎲🎲.
+
+- Alice gets one die, Bob gets the other.
+- No matter how far apart they are, the dice produce correlated results.
+- If someone secretly touches one die, the magical correlation is disturbed.
+- Alice and Bob can check a few rolls to see if the magic is still there.
+- If the magic is broken, they know someone has been spying.
+
+## 3. Key Insights
+- E91 uses **quantum entanglement** instead of independently prepared photons.
+- Security comes from testing **Bell's Inequality**.
+- Alice and Bob each receive one particle from an entangled pair.
+- Eavesdropping weakens the quantum correlations.
+- If Bell's Inequality is violated as expected, the key is considered secure.
+
+## 4. Questions You Should Be Able to Answer
+1. What is the E91 protocol?
+2. How is E91 different from BB84?
+3. What role does quantum entanglement play?
+4. Why is Bell's Inequality important?
+5. How does E91 detect an eavesdropper?
+
+## 5. Future Endeavors (Open Mysteries)
+- How can entanglement be maintained over thousands of kilometers?
+- Can E91 become the standard for global quantum communication?
+- How will quantum satellites distribute entangled photons worldwide?
+- Can scientists build a large-scale quantum internet using entanglement?
+- How can entangled photon sources become faster and more reliable?
+
+## 6. Fun Fact
+🤯 The E91 protocol is one of the first real-world applications of **quantum entanglement**, a phenomenon that Einstein famously called **"spooky action at a distance."**
+
+## 7. Long Story Short
+The E91 protocol is a quantum key distribution method that uses **entangled photon pairs** instead of individually prepared photons. Alice and Bob each measure one photon from every entangled pair. By testing whether their results violate **Bell's Inequality**, they can verify that the photons remained genuinely quantum and that no eavesdropper interfered. If the test passes, they use the remaining measurements to create a shared secret key.
+
+## 8. Vocabulary
+
+| Word | Meaning |
+|------|---------|
+| E91 | A QKD protocol proposed by Artur Ekert in 1991. |
+| Entanglement | A quantum connection where two particles have correlated properties. |
+| Bell's Inequality | A mathematical test used to verify quantum entanglement. |
+| Correlation | A relationship between Alice's and Bob's measurement results. |
+| Entangled Pair | Two particles created together whose quantum states are linked. |
+
+## 9. One-Sentence Memory Trick
+**BB84 protects the key with quantum measurement, while E91 protects it with quantum entanglement and Bell's Inequality.**
+
+##############################
+##############################
+##############################

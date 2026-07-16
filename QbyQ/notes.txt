@@ -2275,3 +2275,153 @@ Scientists are still figuring out which superhero—or combination of superheroe
 ##############################
 ##############################
 ##############################
+
+# Quantum Teleportation
+
+## 1. Explanation
+**Quantum teleportation** is a method of transferring the **quantum state** of a qubit from one location to another **without physically moving the particle itself**. It requires three things: **entanglement**, **classical communication**, and a **Bell-state measurement**. First, Alice and Bob share an entangled pair of qubits. Alice then performs a special measurement on her qubit and the qubit she wants to send. She sends the measurement result (2 classical bits) to Bob over a normal communication channel. Bob uses this information to apply the correct quantum gate, recreating the original quantum state on his qubit. The original state at Alice's side is destroyed, so no copy is made, obeying the **No-Cloning Theorem**.
+
+## 2. Simple Analogy
+Imagine you have a **magic whiteboard**. 📝
+
+- Alice and Bob each have one magically connected whiteboard.
+- Alice wants to send her drawing to Bob.
+- Instead of mailing the paper, she performs a special trick and then calls Bob with **two simple instructions**.
+- Bob follows the instructions, and **his blank whiteboard becomes an exact copy of the original drawing**.
+- Alice's original drawing disappears in the process.
+
+The **drawing (information)** moves—not the whiteboard.
+
+## 3. Key Insights
+- Quantum teleportation transfers a **quantum state**, not matter.
+- It requires **entanglement** and **classical communication**.
+- Alice sends **2 classical bits** to Bob.
+- The original quantum state is destroyed.
+- It does **not** allow faster-than-light communication.
+
+## 4. Questions You Should Be Able to Answer
+1. What is quantum teleportation?
+2. What three resources are required?
+3. Why is classical communication still necessary?
+4. Why doesn't teleportation violate the speed of light?
+5. Why is the original qubit destroyed?
+
+## 5. Future Endeavors (Open Mysteries)
+- How can scientists teleport quantum states over global distances?
+- Can quantum teleportation build the future quantum internet?
+- How can teleportation be made more reliable?
+- Can quantum repeaters extend teleportation across continents?
+- How will teleportation connect future quantum computers?
+
+## 6. Fun Fact
+🤯 In 2017, scientists successfully demonstrated **quantum teleportation between Earth and a satellite**, showing that teleportation can work over distances of more than **1,000 km**. This is a major step toward a global quantum communication network.
+
+## 7. Long Story Short
+Quantum teleportation transfers the **state** of a qubit from one location to another using entanglement and classical communication. No particle physically travels between Alice and Bob, and the original quantum state is destroyed during the process. Because classical information must still be sent, teleportation cannot exceed the speed of light. It is expected to become a key technology for the future quantum internet.
+
+## 8. Vocabulary
+
+| Word | Meaning |
+|------|---------|
+| Quantum Teleportation | Transfer of a quantum state using entanglement and classical communication. |
+| Entanglement | A quantum connection between two particles. |
+| Bell-State Measurement | A joint measurement on two qubits used in teleportation. |
+| Classical Communication | Ordinary communication (phone, internet, etc.). |
+| No-Cloning Theorem | A rule stating that an unknown quantum state cannot be perfectly copied. |
+
+## 9. Quantum Teleportation Workflow
+
+```
+1. Alice and Bob share an entangled pair.
+          🔗
+
+2. Alice combines her unknown qubit with her entangled qubit.
+
+3. Alice performs a Bell-state measurement.
+
+4. Alice sends 2 classical bits to Bob.
+         📞
+
+5. Bob applies the correct quantum gate (I, X, Z, or XZ).
+
+6. Bob's qubit becomes the original quantum state.
+```
+
+## 10. One-Sentence Memory Trick
+**Quantum teleportation moves the *information* of a qubit—not the particle itself—using entanglement plus two classical bits.**
+
+##############################
+##############################
+##############################
+
+# Quantum Repeater
+
+## 1. Explanation
+A **quantum repeater** is a device that extends the distance over which **quantum information** can be transmitted. In classical communication, repeaters simply copy and amplify a signal. However, in quantum communication, this is impossible because of the **No-Cloning Theorem**, which states that an unknown quantum state cannot be copied exactly. Instead, a quantum repeater creates **entanglement** over short distances and then connects these links using **entanglement swapping**. This allows quantum information to travel much farther without directly copying the qubits. Quantum repeaters are expected to be a key technology for building the **quantum internet**.
+
+## 2. Simple Analogy
+Imagine passing a secret handshake across a line of friends. 🤝
+
+- Alice shakes hands with Friend 1.
+- Friend 1 is entangled with Friend 2.
+- Friend 2 is entangled with Friend 3.
+- Through a special sequence of handshakes (**entanglement swapping**), Alice and Bob become connected—even though they never shook hands directly.
+
+The connection is **extended**, not copied.
+
+## 3. Key Insights
+- Quantum repeaters extend the range of quantum communication.
+- They do **not** copy quantum states.
+- They rely on **entanglement swapping**.
+- They overcome signal loss in optical fibers.
+- They are essential for the future quantum internet.
+
+## 4. Questions You Should Be Able to Answer
+1. What is a quantum repeater?
+2. Why can't classical repeaters be used for quantum communication?
+3. What is the No-Cloning Theorem?
+4. What is entanglement swapping?
+5. Why are quantum repeaters important?
+
+## 5. Future Endeavors (Open Mysteries)
+- How can scientists build practical quantum repeaters?
+- How can entanglement be preserved over thousands of kilometers?
+- Can quantum repeaters enable a global quantum internet?
+- How can quantum memories be improved?
+- What is the most efficient repeater architecture?
+
+## 6. Fun Fact
+🤯 Today's internet uses thousands of classical repeaters to boost signals. The future **quantum internet** will likely rely on **quantum repeaters**, but instead of amplifying signals, they'll **extend entanglement** across vast distances.
+
+## 7. Long Story Short
+A quantum repeater is a device that extends quantum communication over long distances without copying quantum states. Since qubits cannot be cloned, quantum repeaters use **entanglement swapping** to connect shorter entangled links into one long connection. This makes secure long-distance quantum communication possible and is considered a critical technology for building the future quantum internet.
+
+## 8. Vocabulary
+
+| Word | Meaning |
+|------|---------|
+| Quantum Repeater | A device that extends quantum communication using entanglement. |
+| Entanglement Swapping | A process that connects two separate entangled pairs into one longer entangled link. |
+| Quantum Memory | A device that stores quantum states temporarily. |
+| No-Cloning Theorem | A law stating that unknown quantum states cannot be perfectly copied. |
+| Quantum Internet | A future network that transmits quantum information between quantum devices. |
+
+## 9. Workflow
+
+```
+Alice ---- R1 ---- R2 ---- Bob
+
+1. Alice ↔ R1 become entangled.
+2. R1 ↔ R2 become entangled.
+3. R2 ↔ Bob become entangled.
+4. Repeaters perform entanglement swapping.
+5. Alice and Bob end up sharing entanglement over a long distance.
+```
+
+## 10. One-Sentence Memory Trick
+**A quantum repeater doesn't copy qubits—it "stitches together" short entangled links into one long quantum connection.**
+
+##############################
+##############################
+##############################
+
